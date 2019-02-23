@@ -2,5 +2,5 @@
  
  Aby uruchomić:
  --->
- npm install
+ npm install ,
  npm start
