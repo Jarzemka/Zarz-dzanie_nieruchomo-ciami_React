@@ -1,14 +1,116 @@
 {
-    "cars": [
+    "info": [
         {
-            "id": 1,
-            "brand": "BMW",
-            "model": "850i"
-        },
+            "number": 1,
+            "property": {
+                "type": 1,
+                "address": {
+                    "street": "Puławska 25/9",
+                    "city": "Warszawa",
+                    "geo": {
+                        "lati": "",
+                        "longi": ""
+                    }
+                },
+                "values": {
+                    "rooms": "",
+                    "floor": "",
+                    "area": "",
+                    "taras": "",
+                    "garage": ""
+                },
+                "insurance": {
+                    "company": "",
+                    "number": ""
+                },
+                "agreements": [
+                    {
+                        "id": 1,
+                        "person": {
+                            "name": "",
+                            "surname": "",
+                            "pesel": "",
+                            "email": "",
+                            "phone": ""
+                        },
+                        "begin": "",
+                        "end": "",
+                        "status": 3,
+                        "created": ""
+                    },
+                    {
+                        "id": 2,
+                        "begin": "",
+                        "end": "",
+                        "status": 3,
+                        "created": ""
+                    }
+                ],
+                "text": "",
+                "description": "",
+                "pictures": [
+                    {
+                        "url": "",
+                        "descr": "",
+                        "created": ""
+                    }
+                ]
+            },
+            "renovation": [
+                {
+                    "id": "",
+                    "data": "",
+                    "costs": [
+                        {
+                            "id": "",
+                            "cost": "",
+                            "status": "",
+                            "description": ""
+                        }
+                    ],
+                    "status": ""
+                }
+            ],
+            "payment": [
+                {
+                    "id": 1,
+                    "value": "100",
+                    "status": 2
+                }
+            ],
+            "rent": 5
+        }
+    ],
+    "dictionaries": [
         {
-            "id": 2,
-            "brand": "Fiat",
-            "model": "Tipo"
+            "item": {
+                "1": "Nowa",
+                "2": "Wersja robocza"
+            },
+            "prop": [
+                "Mieszkanie",
+                "Apartament",
+                "Pokój",
+                "Szeregówka",
+                "Dom jednorodzinny"
+            ],
+            "costs": {
+                "1": "nowy",
+                "2": "uznany",
+                "3": "cofnięty",
+                "4": "wyliczony"
+            },
+            "payments": {
+                "1": "Do opłacenia",
+                "2": "wystawiona",
+                "3": "Zapłacona",
+                "4": "zwrócona"
+            },
+            "agreements": {
+                "1": "Nowa",
+                "2": "Aktualna",
+                "3": "Archiwalna"
+            }
         }
     ]
 }

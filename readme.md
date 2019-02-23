@@ -1,1 +1,1 @@
-Aplikacja służąca do zarządzania nieruchomościami
+﻿Aplikacja do zarządzania nieruchomościami

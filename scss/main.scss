@@ -1,12 +1,51 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
 }
+//main option
+.container {
+    width: 80%;
+    margin: auto;
+    border: 1px solid green;
+};
+
+#appName {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    text-align: center;
+};
 
 input{
     display: block;
-}
+};
 
 section {
     border: 1px solid black;
-}
+};
+
+//navigation
+li {
+    list-style: none;
+};
+
+#navigation {
+    padding-top: 20px;    
+    height: 40px;
+    text-align: center;
+    border: 1px solid gray;
+};
+
+.nav {
+    margin-left: 30px;
+    text-decoration: none;
+};
+
+.backTo {
+    text-decoration: none;
+    border: 1px solid gray;
+};
+
+
+
