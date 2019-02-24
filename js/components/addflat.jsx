@@ -49,7 +49,6 @@ class AddFlat extends React.Component {
     }
     btnSubmit = (e) => {
         e.preventDefault();
-
         this.setState({
             person: {
                 "name": e.target.name.value,
@@ -69,6 +68,7 @@ class AddFlat extends React.Component {
 
             },
             text: e.target.text.value,
+            info: [],
         });
     };
 
@@ -88,8 +88,13 @@ class AddFlat extends React.Component {
     };
 
     render() {
-        console.log("addflat---");
+        console.log("addflat--?");
         console.log(this.props.dict.prop)
+        let d = this.props.dict.prop;
+        d.map((e, i) => {
+
+        })
+
         // this.props.dict.prop.map((item, i) => {
         //     console.log(i);
         // });
@@ -97,32 +102,34 @@ class AddFlat extends React.Component {
             <div>
                 <form onSubmit={this.btnSubmit}>
                     <h2>Umowa numer: {this.state.number}/2019</h2>
-                    <label>Typ</label>
-                    <select name="type" >
-                        {objects.map((item, i) =>
-                            <option key={i} value={i}>{item}</option>
-                        )}
-                    </select>
+                    <div id="select">
+                        <label>Typ</label>
+                        <select name="type" >
+                            {objects.map((item, i) =>
+                                <option key={i} value={i}>{item}</option>
+                            )}
+                        </select>
 
-                    <label>Status nieruchomości</label>
-                    <select name="status" value={this.state.status} onChange={this.handleChange}>
-                        {status.map((item, i) =>
-                            <option key={i} value={i}>{item}</option>
-                        )}
-                    </select>
+                        <label>Status nieruchomości</label>
+                        <select name="status" value={this.state.status} onChange={this.handleChange}>
+                            {status.map((item, i) =>
+                                <option key={i} value={i}>{item}</option>
+                            )}
+                        </select>
 
-                    <label>Przeznaczenie nieruchomości</label>
-                    <select name="destiny" value={this.state.destiny} onChange={this.handleChange}>
-                        {destiny.map((item, i) =>
-                            <option key={i} value={i}>{item}</option>
-                        )}
-                    </select>
-
+                        <label>Przeznaczenie nieruchomości</label>
+                        <select name="destiny" value={this.state.destiny} onChange={this.handleChange}>
+                            {destiny.map((item, i) =>
+                                <option key={i} value={i}>{item}</option>
+                            )}
+                        </select>
+                    </div>
                     <Property />
                     <Person />
 
-                    <label>Wycena</label>
+
                     <section>
+                        <label>Wycena</label>
                         <input type="text" placeholder="Czynsz" />
                         <input type="text" placeholder="Cena za m²" />
                         <div>Tu mnoznik cena*powierzchnia</div>
@@ -135,10 +142,12 @@ class AddFlat extends React.Component {
                     </section>
 
                     <section>
-                        <button type='submit'>Dodaj nieruchomość</button>
+                        <button className="form" type='submit'>Dodaj nieruchomość</button>
+                    </section>
+                    <section>
+                        <button className="form" >Drukuj umowę</button>
                     </section>
                 </form>
-                <button >Drukuj umowę</button>
             </div>
         );
     }

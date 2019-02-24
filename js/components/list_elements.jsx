@@ -20,7 +20,7 @@ const ElementList = props => {
     return (
         <li >
             <span>{props.type}. {props.dict} {props.address} {props.city}</span>
-            <button onClick={handleEditBtn}>Edytuj</button><button onClick={handleRmBtn}>Usuń</button>
+            <button className="listBtn" onClick={handleEditBtn}>Edytuj</button><button className="listBtn" onClick={handleRmBtn}>Usuń</button>
         </li>
     )
 }

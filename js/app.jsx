@@ -53,10 +53,17 @@ class Monitoring extends React.Component {
 class Main extends React.Component {
     render() {
         return (
-            <div id="navigation">
-                <NavLink to="/newflat" className="nav">Dodaj nieruchomość</NavLink>
-                <NavLink to="/flatslist" className="nav">Zobacz listę nieruchomości</NavLink>
-                <NavLink to="/monitoring" className="nav">Monitoruj zyski i koszty</NavLink>
+            <div>
+                <div id="navigation">
+                    <NavLink to="/newflat" className="nav">Dodaj nieruchomość</NavLink>
+                    <NavLink to="/flatslist" className="nav">Zobacz listę nieruchomości</NavLink>
+                    <NavLink to="/monitoring" className="nav">Monitoruj zyski i koszty</NavLink>
+                </div>
+                <div id="alerts">
+                    <h1>Przypomnienie 1</h1>
+                    <h1>Przypomnienie 2</h1>
+                    <h1>Przypomnienie 3</h1>
+                </div>
             </div>
         )
     }
@@ -72,29 +79,32 @@ class App extends React.Component {
     }
 
     fetchDiki = () => {
-        // const url = 'http://localhost:3000/dictionaries';
-        // await fetch(url)
-        //     .then(resp => resp.json())
-        //     .then(resp => {
-        //         this.setState({
-        //             dict: resp[0],
-        //         });
-        //         console.log(this.state)
-        //     }).catch(err => {
-        //         console.log(err);
-        //     })
+        const url = 'http://localhost:3000/dictionaries';
+        fetch(url)
+            .then(resp => resp.json())
+            .then(resp => {
+                this.setState({
+                    dict: resp[0],
+                });
+                console.log(this.state);
+            }).catch(err => {
+                console.log(err);
+            })
     }
 
 
 
     componentDidMount() {
-        //this.fetchDiki
+        setTimeout(this.fetchDiki, 1);
         const url = 'http://localhost:3000/dictionaries';
-        let respone = await fetch(url);
+        let respone = fetch(url);
 
     }
 
     render() {
+        const url = 'http://localhost:3000/dictionaries';
+        let respone = fetch(url);
+        
         return (
             <HashRouter>
                 <div>

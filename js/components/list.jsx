@@ -38,9 +38,9 @@ class FlatsListTable extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         const list = this.state.info.map(info => (
-            <ElementList key={info.number}
+            <ElementList
+                key={info.number}
                 type={info.number}
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
