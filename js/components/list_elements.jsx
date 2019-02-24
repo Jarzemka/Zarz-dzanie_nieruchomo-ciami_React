@@ -14,13 +14,14 @@ const handleEditBtn = () => {
 
 const handleRmBtn = () => {
     console.log("usun")
-
 }
 
 const ElementList = props => {
     return (
-        <li >{props.type}. {props.address} {props.city}</li>
+        <li >
+            <span>{props.type}. {props.dict} {props.address} {props.city}</span>
+            <button onClick={handleEditBtn}>Edytuj</button><button onClick={handleRmBtn}>Usuń</button>
+        </li>
     )
 }
-
 export default ElementList;

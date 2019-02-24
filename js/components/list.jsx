@@ -8,12 +8,13 @@ import {
     Link,
     Switch,
     NavLink,
+    ReactFragment,
 } from 'react-router-dom';
 
 class FlatsListTable extends React.Component {
     state = {
         info: [],
-        dictionaries: [],
+        dict: this.props.dict,
         isLoaded: false,
         contentEditable: false,
     }
@@ -32,40 +33,23 @@ class FlatsListTable extends React.Component {
             })
     }
 
-    fetchDiki = () => {
-        const url = 'http://localhost:3000/dictionaries';
-        fetch(url)
-            .then(resp => resp.json())
-            .then(resp => {
-                this.setState({
-                    dictionaries: resp[0],
-                });
-                console.log(this.state)
-            }).catch(err => {
-                console.log(err);
-            })
-    }
-
-
     componentDidMount() {
         setTimeout(this.fetchData, 1000);
-        setTimeout(this.fetchDiki, 1);
-        console.log(this.state);
     }
 
     render() {
-        let dic = this.state.dictionaries.prop;
-        console.log(dic);
+        console.log(this.props);
         const list = this.state.info.map(info => (
-            <ElementList key={info.number} type={info.number} address={info.property.address.street} city={info.property.address.city} />
+            <ElementList key={info.number}
+                type={info.number}
+                dict={this.props.dict.prop[info.number]}
+                address={info.property.address.street}
+                city={info.property.address.city}
+            />
         ));
-        const edBtn = <button contentEditable={this.state.contentEditable}>Edytuj</button>;
-        const rmBtn = <button >Usuń</button>;
         return (
             <ul>
                 {this.state.isLoaded ? list : "Wczytuję dane..."}
-                {this.state.isLoaded ? edBtn : ""}
-                {this.state.isLoaded ? rmBtn : ""}
             </ul>
         );
     }

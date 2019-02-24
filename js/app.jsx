@@ -12,11 +12,13 @@ import FlatsListTable from './components/list.jsx'
 
 class NewFlat extends React.Component {
     render() {
+        console.log("new flaat")
+        console.log(this);
         return (
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Nowa nieruchomość</h2>
-                <AddFlat />
+                <AddFlat dict={this.props.dict} />
             </div>
         )
     }
@@ -29,7 +31,7 @@ class FlatsList extends React.Component {
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Lista nieruchomości</h2>
-                <FlatsListTable />
+                <FlatsListTable dict={this.props.dict} />
             </div>
         )
     }
@@ -61,25 +63,36 @@ class Main extends React.Component {
 }
 
 class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            dict: [],
+            info: [],
+        }
+    }
 
-    // fetchDiki = () => {
-    //     const url = 'http://localhost:3000/dictionaries';
-    //     fetch(url)
-    //         .then(resp => resp.json())
-    //         .then(resp => {
-    //             this.setState({
-    //                 dictionaries: resp[0],
-    //             })
-    //             console.log(resp);
-    //             console.log(this.state);
-    //         }).catch(err => {
-    //             console.log(err);
-    //         })
-    // }
+    fetchDiki = () => {
+        // const url = 'http://localhost:3000/dictionaries';
+        // await fetch(url)
+        //     .then(resp => resp.json())
+        //     .then(resp => {
+        //         this.setState({
+        //             dict: resp[0],
+        //         });
+        //         console.log(this.state)
+        //     }).catch(err => {
+        //         console.log(err);
+        //     })
+    }
 
-    // componentDidMount() {
-    //     setTimeout(this.fetchDiki, 1)
-    // }
+
+
+    componentDidMount() {
+        //this.fetchDiki
+        const url = 'http://localhost:3000/dictionaries';
+        let respone = await fetch(url);
+
+    }
 
     render() {
         return (
@@ -88,8 +101,12 @@ class App extends React.Component {
                     <h1 id="appName">Dev-App</h1>
                     <Switch>
                         <Route exact path='/' component={Main} />
-                        <Route path='/newflat' component={NewFlat} />
-                        <Route path='/flatslist' component={FlatsList} />
+                        <Route path='/newflat'
+                            render={(props) => <NewFlat dict={this.state.dict} />}
+                        />
+                        <Route path='/flatslist'
+                            render={(props) => <FlatsList dict={this.state.dict} />}
+                        />
                         <Route path="/monitoring" component={Monitoring} />
                     </Switch>
                 </div>
