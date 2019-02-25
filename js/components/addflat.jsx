@@ -42,13 +42,17 @@ class AddFlat extends React.Component {
             isGarage: false,
         },
         text: "",
+        isLoaded: false,
     }
 
     handleChange = (e) => {
         console.log(e.target.value)
     }
+
     btnSubmit = (e) => {
         e.preventDefault();
+
+        const dict = [this.state.dict]
         this.setState({
             person: {
                 "name": e.target.name.value,
@@ -69,6 +73,7 @@ class AddFlat extends React.Component {
             },
             text: e.target.text.value,
             info: [],
+            dict,
         });
     };
 
@@ -87,13 +92,14 @@ class AddFlat extends React.Component {
             });
     };
 
-    render() {
-        console.log("addflat--?");
-        console.log(this.props.dict.prop)
-        let d = this.props.dict.prop;
-        d.map((e, i) => {
 
-        })
+    render() {
+        // console.log("addflat--?");
+        // console.log(this.props.dict.prop)
+        // let d = [this.props.dict.prop];
+        // d.map((e, i) => {
+        //     console.log(e, i)
+        // })
 
         // this.props.dict.prop.map((item, i) => {
         //     console.log(i);
@@ -126,7 +132,6 @@ class AddFlat extends React.Component {
                     </div>
                     <Property />
                     <Person />
-
 
                     <section>
                         <label>Wycena</label>

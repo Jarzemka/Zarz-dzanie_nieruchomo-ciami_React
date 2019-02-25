@@ -19,7 +19,7 @@ const handleRmBtn = () => {
 const ElementList = props => {
     return (
         <li >
-            <span>{props.type}. {props.dict} {props.address} {props.city}</span>
+            <span className="listElem">{props.type}. {props.dict} {props.address} {props.city}</span>
             <button className="listBtn" onClick={handleEditBtn}>Edytuj</button><button className="listBtn" onClick={handleRmBtn}>Usuń</button>
         </li>
     )

@@ -12,13 +12,11 @@ import FlatsListTable from './components/list.jsx'
 
 class NewFlat extends React.Component {
     render() {
-        console.log("new flaat")
-        console.log(this);
         return (
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Nowa nieruchomość</h2>
-                <AddFlat dict={this.props.dict} />
+                <AddFlat dict={props.dict} />
             </div>
         )
     }
@@ -104,7 +102,7 @@ class App extends React.Component {
     render() {
         const url = 'http://localhost:3000/dictionaries';
         let respone = fetch(url);
-        
+
         return (
             <HashRouter>
                 <div>
