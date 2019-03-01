@@ -15,7 +15,7 @@ function Test() {
 const Property = props => {
     return (
         <section className="box">
-            <label>Dane dot. wynajmowanego obiektu</label>
+            <label className="boxTitle">Dane dot. wynajmowanego obiektu</label>
             <input type="text" name="address" placeholder="Adres" onChange={props.onChange} />
             <input type="text" name="city" placeholder="Miasto" onChange={props.onChange} />
             <input type="number" name="rooms" placeholder="Ilość pokoi" onChange={props.onChange} />

@@ -151,10 +151,15 @@ class AddFlat extends React.Component {
                         <label className="boxTitle">Wycena</label>
                         <input type="text" placeholder="Czynsz" />
                         <input type="text" placeholder="Cena za m²" />
+                        <input type="text" placeholder="Media" />
+                        <input type="text" placeholder="Internet" />
+                        <input type="text" placeholder="Abonament radiowo-telewizyjny" />
+                        <input type="text" placeholder="Telewizja kablowa" />
                         <div>Tu mnoznik cena*powierzchnia</div>
                     </section>
 
                     <section className="box">
+                        <label className="boxTitle">Czas obowiązywania umowy</label><br />
                         Data rozpoczęcia: <input type="date" placeholder="Początek umowy" />
                         Data zakończenia: <input type="date" placeholder="Koniec umowy" />
                         Dodatkowe informacje:<br /> <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="30" />

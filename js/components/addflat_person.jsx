@@ -11,7 +11,7 @@ import {
 const Person = props => {
     return (
         <section className="box">
-            <label className="title">Dane najemcy do umowy</label>
+            <label className="boxTitle">Dane najemcy do umowy</label>
             <input type="text" name='name' placeholder="Imię najemcy" />
             <input type="text" name='surname' placeholder="Nazwisko najemcy" />
             <input type="number" name='pesel' placeholder="PESEL" />

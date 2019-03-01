@@ -1,0 +1,14 @@
+$phone: "(max-width: 768px)";
+$tablet: "(max-width: 1023px) and (min-width: 768px) ";
+$desk: "(min-width: 1023px)";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    color: #02111B;
+}
+body {
+    background-color: #F7F7F2;
+}
