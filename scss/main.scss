@@ -1,27 +1,39 @@
+$phone: "(max-width: 768px)";
+$tablet: "(max-width: 1023px) and (min-width: 768px) ";
+$desk: "(min-width: 1023px)";
+
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+    color: #02111B;
 }
 body {
     background-color: #F7F7F2;
+    @media #{$phone} {
+        background-color: green;
+    }
 }
-$tablet: "(min-width: 768px) and (max-width: 1023px)";
-$phone: "(max-width: 768px)";
+
 
 //main option
 .container {
     width: 80%;
     height: 1000px;
     margin: auto;
-    border: 1px solid green;
+    border: 1px solid black;
     @media #{$phone} {
+        font-size: 12px;
+        height: 1700px;
+    }
+    @media #{$tablet} {
+        background-color: yellow;
+        height: 1000px;
+    }
+    @media #{$desk} {
         background-color: orange;
     }
-    @media #{$tablet}{
-        background-color: red;
-    }
-
 };
 
 #appName {
@@ -38,25 +50,35 @@ li {
 };
 
 #navigation {
+    display: flex;
+    flex-wrap: wrap;
     background-color: #7F9172;
-    padding-top: 20px;    
-    height: 40px;
+    padding-left: 25%; 
+    height: 50px;
     text-align: center;
     border: 1px solid #7A6263;
 };
 
 .nav {
     color: #F7F7F2;
-    margin-left: 30px;
+    padding: 1%;
+    margin-left: 3%;
+    height: 100%;
     text-decoration: none;
 };
 .nav:hover{
-    text-decoration: underline;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 15px;
+    background-color: rgb(115, 131, 103);
+    transition-duration: 1s;
 }
 
 .backTo {
     text-decoration: none;
     border: 1px solid gray;
+    height: 20px;
+    width: 100%;
+    background-color: #7F9172;
 };
 
 //main alerts
@@ -77,50 +99,179 @@ li {
 
 //add flat - formularz
 section {
-
     border: 1px solid black;
     width: 45%;
     height: 250px;
     float: left;
     margin-left: 3%;
     margin-top: 3%;
+    @media #{$phone} {
+        width: 90%;
+        display: block;
+        margin: 0 5%;
+    }
 };
 
 input{
     display: flex;
     justify-content: center;
+    @media #{$phone} {
+        width: 10vw;
+    }
+    // @media #{$tablet} {
+    //     background-color: yellow;
+    // }
+    // @media #{$desk} {
+    //     background-color: orange;
+    // }
 };
-
-#select >select {
-    margin-left: 5px;
+//opcje wyboru
+.custom-select {
+    position: relative;
+    font-family: Arial;
 }
+
+.select-selected{
+    background-color: dodgerblue;
+}
+
+
+#select > select {
+    margin-left: 5px;
+    width: 9vw;
+    @media #{$phone} {
+        width: 5vw;
+    }
+}
+
+#select > select >option {
+    width: 1rem;
+}
+
+
 #select > label {
     margin-left: 15px;
+
 }
+
 #select {
     text-align: center;
     border: 1px solid gray;
     width: 100%;
     height: 40px;
     margin: auto;
-    padding-top: 15px;
+    padding-top: 10px;
+    @media #{$phone}{
+        height: 100px;
+    }
 }
+#select-selected::after{
+    background-color: red;
+}
+
 .box > input{
     margin: auto;
     margin-top: 5px;
+    width: 15vw;
+    @media #{$phone} {
+        width: 50vw;
+    }
+}
+
+.boxTitle {
+    font-weight: bold;
+    text-align: center;
 }
 label.title {
     text-align: center;
 }
+
+//checkboxy sekcja 1
+.inputContainer {
+    display: inline-block;
+    position: relative;
+    padding-left: 25%;
+    margin-top: 10px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+.inputContainer input {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 10vw;
+    z-index: 1;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+.inputContainer p {
+    position: absolute;
+    top: 3px;
+    left: 13vw;
+
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 10.5vw;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border: 1px solid gray;
+}
+.inputContainer:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+.inputContainer input:checked ~ .checkmark {
+    background-color: #7A6263;
+}
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.inputContainer input:checked ~ .checkmark::after {
+    display: block;
+}
+.inputContainer .checkmark::after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+//buttony w formularzu
 button.form {
     width: 25%;
     height: 50px;
 }
+.submitBox {
+    position: relative;
+}
+.submitBox button {
+    position: absolute;
+    top: 0;
+    left: 14vw;
+    // @media #{$tablet}{
+    //     background-color: green;
+    //     font-size: 10px;
+    // }
+}
 
 //list
+
 .listBtn {
     width: 50px;
 }
 .listElem {
     margin: 10px;
+    border: 1px solid red;
 }

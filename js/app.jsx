@@ -8,7 +8,7 @@ import {
     NavLink,
 } from 'react-router-dom';
 import AddFlat from './components/addflat.jsx';
-import FlatsListTable from './components/list.jsx'
+import FlatsListTable from './components/list.jsx';
 
 class NewFlat extends React.Component {
     render() {
@@ -16,7 +16,7 @@ class NewFlat extends React.Component {
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Nowa nieruchomość</h2>
-                <AddFlat dict={props.dict} />
+                <AddFlat dict={this.props.dict} />
             </div>
         )
     }

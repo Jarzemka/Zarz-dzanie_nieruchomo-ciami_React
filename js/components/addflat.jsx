@@ -46,12 +46,15 @@ class AddFlat extends React.Component {
     }
 
     handleChange = (e) => {
+        e.preventDefault();
         console.log(e.target.value)
+        this.setState({
+            value: e.target.value,
+        });
     }
 
     btnSubmit = (e) => {
         e.preventDefault();
-
         const dict = [this.state.dict]
         this.setState({
             person: {
@@ -91,7 +94,12 @@ class AddFlat extends React.Component {
                 console.log(err);
             });
     };
-
+    Test = () => {
+        console.log("test");
+    }
+    componentDidMount() {
+        setTimeout(this.fetchSetData, 1);
+    }
 
     render() {
         // console.log("addflat--?");
@@ -108,48 +116,54 @@ class AddFlat extends React.Component {
             <div>
                 <form onSubmit={this.btnSubmit}>
                     <h2>Umowa numer: {this.state.number}/2019</h2>
-                    <div id="select">
-                        <label>Typ</label>
-                        <select name="type" >
-                            {objects.map((item, i) =>
-                                <option key={i} value={i}>{item}</option>
-                            )}
-                        </select>
+                    <div id="select" className="custom-select">
+                        <label>Typ
+                        <select name="type" onChange={this.handleChange}>
+                                {objects.map((item, i) =>
+                                    <option key={i} value={i}>{item}</option>
+                                )}
+                            </select>
+                        </label>
 
-                        <label>Status nieruchomości</label>
-                        <select name="status" value={this.state.status} onChange={this.handleChange}>
-                            {status.map((item, i) =>
-                                <option key={i} value={i}>{item}</option>
-                            )}
-                        </select>
 
-                        <label>Przeznaczenie nieruchomości</label>
-                        <select name="destiny" value={this.state.destiny} onChange={this.handleChange}>
-                            {destiny.map((item, i) =>
-                                <option key={i} value={i}>{item}</option>
-                            )}
-                        </select>
+                        <label>Status nieruchomości
+                        <select name="status" onChange={this.handleChange}>
+                                {status.map((item, i) =>
+                                    <option key={i} value={i}>{item}</option>
+                                )}
+                            </select>
+                        </label>
+
+                        <label>Przeznaczenie nieruchomości
+                        <select name="destiny" onChange={this.handleChange}>
+                                {destiny.map((item, i) =>
+                                    <option key={i} value={i}>{item}</option>
+                                )}
+                            </select>
+                        </label>
                     </div>
-                    <Property />
+                    <Property
+                        onChange={this.Test}
+                    />
                     <Person />
 
-                    <section>
-                        <label>Wycena</label>
+                    <section className="box">
+                        <label className="boxTitle">Wycena</label>
                         <input type="text" placeholder="Czynsz" />
                         <input type="text" placeholder="Cena za m²" />
                         <div>Tu mnoznik cena*powierzchnia</div>
                     </section>
 
-                    <section>
+                    <section className="box">
                         Data rozpoczęcia: <input type="date" placeholder="Początek umowy" />
                         Data zakończenia: <input type="date" placeholder="Koniec umowy" />
-                        Dodatkowe informacje: <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="30" />
+                        Dodatkowe informacje:<br /> <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="30" />
                     </section>
 
-                    <section>
+                    <section className="submitBox">
                         <button className="form" type='submit'>Dodaj nieruchomość</button>
                     </section>
-                    <section>
+                    <section className="submitBox">
                         <button className="form" >Drukuj umowę</button>
                     </section>
                 </form>

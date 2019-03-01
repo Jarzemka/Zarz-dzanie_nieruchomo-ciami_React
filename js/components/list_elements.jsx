@@ -16,11 +16,11 @@ const handleRmBtn = () => {
     console.log("usun")
 }
 
-const ElementList = props => {
+const ElementList = (props) => {
     return (
         <li >
             <span className="listElem">{props.type}. {props.dict} {props.address} {props.city}</span>
-            <button className="listBtn" onClick={handleEditBtn}>Edytuj</button><button className="listBtn" onClick={handleRmBtn}>Usuń</button>
+            <button className="listBtn" onClick={props.delete}>Usuń</button>
         </li>
     )
 }

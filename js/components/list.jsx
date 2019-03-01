@@ -33,6 +33,13 @@ class FlatsListTable extends React.Component {
             })
     }
 
+    handleDeleteBtn = () => {
+        console.log("delete");
+        const info = [...this.state.info];
+        // const index = info.findIndex(info => info.number === id);
+        // console.log(index);
+    }
+
     componentDidMount() {
         setTimeout(this.fetchData, 1000);
     }
@@ -45,6 +52,7 @@ class FlatsListTable extends React.Component {
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
                 city={info.property.address.city}
+                delete={this.handleDeleteBtn}
             />
         ));
         return (
