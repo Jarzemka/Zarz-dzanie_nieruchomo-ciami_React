@@ -1,11 +1,17 @@
 @import "partials/addflat";
 @import "partials/base";
+@import "partials/flatlist";
 
 
 //main option
+h2 {
+    @media #{$phone},#{$tablet} {
+        text-align: center;
+    }
+}
+
 .container {
     width: 80%;
-    height: 1000px;
     margin: auto;
     border: 1px solid black;
     @media #{$phone} {
@@ -14,9 +20,10 @@
     }
     @media #{$tablet} {
         font-size: 12px;
-        height: 1000px;
+        height: 900px;
     }
     @media #{$desk} {
+        height: 800px;
         background-color: orange;
     }
 };
@@ -43,6 +50,7 @@ li {
 
     @media #{$phone}, #{$tablet} {
         padding-left: 0;
+
     }
     @media #{$desk} {
         height: 50px;
@@ -59,6 +67,8 @@ li {
     text-decoration: none;
     @media #{$phone}, #{$tablet} {
         margin: auto;
+        width: 30vw;
+        font-size: 12px;
     }
 };
 .nav:hover{
@@ -96,12 +106,4 @@ li {
     cursor: pointer;
 }
 
-//list
 
-.listBtn {
-    width: 50px;
-}
-.listElem {
-    margin: 10px;
-    border: 1px solid red;
-}

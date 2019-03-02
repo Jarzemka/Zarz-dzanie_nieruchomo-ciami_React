@@ -1,0 +1,91 @@
+@import "./base";
+//list
+#propertyList {
+    border: 1px solid red;
+    @media #{$phone},#{$tablet},#{$desk} {
+        margin-top: 10px;
+    }
+}
+
+.listElemContainer {
+    border: 1px solid black;
+    position: relative;
+    @media #{$phone} {
+        height: 20px;
+    }
+    @media #{$tablet} {
+        height: 30px;
+    }
+    @media #{$desk} {
+        height: 40px;
+    }
+}
+
+.listElem {
+    position: absolute;
+    @media #{$phone} {
+        font-size: 9px;
+        top: 3px;
+        left: 3px;
+    }
+    @media #{$tablet} {
+        font-size: 12px;
+        top: 5px;
+        left: 5px;
+    }
+    @media #{$desk} {
+        font-size: 16px;
+        top: 9px;
+        left: 5px;
+    }
+}
+.editBtn {
+    position: absolute;
+    @media #{$phone} {
+        width: 30px;
+        font-size: 8px;
+        top: 2px;
+        right: 40px;
+    }
+    @media #{$tablet} {
+        width: 40px;
+        font-size: 10px;
+        top: 5px;
+        right: 55px;
+    }
+    @media #{$desk} {
+        font-size: 12px;
+        width: 50px;
+        top: 9px;
+        right: 70px;
+    }
+
+}
+.deleteBtn {
+    position: absolute;
+    @media #{$phone} {
+        width: 30px;
+        font-size: 8px;
+        top: 2px;
+        right: 3px;
+    }
+    @media #{$tablet} {
+        width: 40px;
+        font-size: 10px;
+        top: 5px;
+        right: 5px;
+    }
+    @media #{$desk} {
+        width: 50px;
+        font-size: 12px;
+        top: 9px;
+        right: 10px;
+    }
+}
+
+.editBtn, .deleteBtn::after {
+    clear: both;
+    display: inline-block;
+    content: "";
+}
+

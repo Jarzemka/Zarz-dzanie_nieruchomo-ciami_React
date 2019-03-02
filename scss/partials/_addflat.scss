@@ -1,24 +1,26 @@
 @import "./base";
 
 //add flat - formularz
-h2 {
-    @media #{$phone},#{$tablet} {
-        text-align: center;
-    }
-}
+
 section {
     border: 1px solid black;
-    width: 45%;
     height: 250px;
-    float: left;
-    margin-left: 3%;
-    margin-top: 3%;
-
-    @media #{$phone},#{$tablet} {
-        width: 90%;
+    @media #{$phone} {
         display: block;
-        margin: 0 5%;
+        width: 90%;
+        // margin: 0 5%;
         text-align: center;
+    }
+    @media #{$tablet} {
+        float: left;
+        width: 35vw;
+        // margin: 0 1%;
+        text-align: center;
+    }
+    @media #{$desk}{
+        float: left;
+        width: 45%;
+        // margin: 0 1%;
     }
 };
 
@@ -80,19 +82,65 @@ input{
 #select-selected::after{
     background-color: red;
 }
-
-.box > input{
-    margin: auto;
-    margin-top: 5px;
-    width: 15vw;
+.box{
+    position: relative;
+    padding: 20px;
     @media #{$phone} {
-        width: 50vw;
+        margin-left: 5%;
+    }
+    @media #{$tablet} {
+        margin-left: 4%;
+    }
+    @media #{$desk} {
+        margin-left: 3%;
+    }
+}
+.box >p {
+    float: left;
+    @media #{$phone} {
+        font-size: 12px;
+    }
+    @media #{$tablet} {
+        font-size: 13px;
+        margin-top: 3px;
+    }
+    @media #{$desk} {
+        font-size: 14px;
+    }
+}
+.box > input{
+    // position: absolute;
+    margin: 5px auto;
+    @media #{$phone} {
+        width: 40vw;
+    }
+    @media #{$tablet} {
+        width: 25vw;
+    }
+    @media #{$desk} {
+        width: 20vw;
     }
 }
 
 .boxTitle {
+    position: absolute;
     font-weight: bold;
     text-align: center;
+    @media #{$phone} {
+        font-size: 10px;
+        top: 0;
+        left: 0;
+    }
+    @media #{$tablet} {
+        font-size: 12px;
+        top: 0;
+        left: 0;
+    }    
+    @media #{$desk} {
+        font-size: 14px;
+        top: 5px;
+        left: 0;
+    }
 }
 label.title {
     text-align: center;
@@ -102,50 +150,89 @@ label.title {
 .inputContainer {
     display: inline-block;
     position: relative;
-    padding-left: 25%;
     margin-top: 10px;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+    @media #{$phone} {
+        width: 70px;
+        height: 25px;
+    }
+    @media #{$tablet} {
+        width: 100px;
+        height: 25px;
+    }
+    @media #{$desk}{
+        width: 100px;
+        height: 25px;
+    }
 }
+
 .inputContainer input {
     position: absolute;
     opacity: 0;
-    top: 0;
-    left: 10vw;
     z-index: 1;
-    height: 25px;
-    width: 25px;
     cursor: pointer;
-    @media #{$phone},#{$tablet} {
-        left: 14vw;
+    @media #{$phone}{
+        left: 20%;
+        top: 0;
+        height: 15px;
+        width: 15px;
+    }
+    @media #{$tablet} {
+        left: 20%;
+        top: 0;
+        height: 15px;
+        width: 15px;
+    }
+    @media #{$desk} {
+        height: 25px;
+        width: 25px;
+        left: 70px;
+        top: 0;
     }
 }
 
 .inputContainer p {
     position: absolute;
-    top: 3px;
-    left: 13vw;
-    @media #{$phone},#{$tablet} {
-        left: 20vw;
+    @media #{$phone} {
+        left: 40%;
         top: 0;
+    }
+    @media #{$tablet} {
+        left: 35%;
+        top: 0;
+    }
+    @media #{$desk} {
+        left: 10vw;
+        top: 2px;
+        padding-left: 5%;
     }
 
 }
 .checkmark {
     position: absolute;
-    top: 0;
-    left: 10.5vw;
-    height: 25px;
-    width: 25px;
-    @media #{$phone},#{$tablet} {
-        height: 15px;
-        width: 15px;
-        left: 15vw;
-    }
     background-color: #eee;
     border: 1px solid gray;
+    @media #{$phone} {
+        height: 15px;
+        width: 15px;
+        left: 20%;
+        top: 0;
+    }
+    @media #{$tablet} {
+        height: 15px;
+        width: 15px;
+        left: 20%;
+        top: 0;
+    }
+    @media #{$desk} {
+        height: 25px;
+        width: 25px;
+        left: 8vw;
+        top: 0;
+    }
 }
 .inputContainer:hover input ~ .checkmark {
     background-color: #ccc;
@@ -162,47 +249,87 @@ label.title {
     display: block;
 }
 .inputContainer .checkmark::after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+
     @media #{$phone},#{$tablet} {
         left: 3px;
         top: 2px;
         width: 3px;
         height: 5px;
     }
+    @media #{$desk} {
+        left: 8px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+    }
 }
 
 textarea {
-    margin: 6px 8vw;
-    @media #{$phone},#{$tablet} {
-        margin: 6px 7vw;
+    @media #{$phone} {
+        width: 40vw;
+        margin: 0;
+    }
+    @media #{$tablet} {
+        width: 25vw;
+        margin: 0;
+    }
+    @media #{$desk} {
+        width: 20vw;
+        margin-top: 5px;
+        margin-left: 6vw;
     }
 }
 
 //buttony w formularzu
 button.form {
-    width: 25%;
-    height: 50px;
+    @media #{$phone} {
+        width: 50%;
+        height: 40px;
+    }
+    @media #{$tablet} {
+        width: 25%;
+        height: 50px;
+    }
+    @media #{$desk} {
+        width: 25%;
+        height: 50px;
+    }
 }
 .submitBox {
     position: relative;
-    @media #{$phone},#{$tablet} {
+    @media #{$phone} {
         height: 52px;
+        width: 34vw;
+        float: left;
+        margin-left: 5%;
+    }
+    @media #{$tablet} {
+        height: 52px;
+        width: 35vw;
+        margin-left: 4%;
+    }
+    @media #{$desk} {
+        height: 55px;
+        margin-left: 3%;
     }
 }
 .submitBox button {
     position: absolute;
-    top: 0;
-    left: 14vw;
-    @media #{$phone},#{$tablet} {
-        left: 27vw;
-        font-size: 8px;
+    @media #{$phone}{
+        left: 9vw;
+        font-size: 7px;
+    }
+    @media #{$tablet} {
+        left: 13vw;
+        font-size: 9px;
+    }    
+    @media #{$desk} {
+        left: 14vw;
+        font-size: 12px;
     }
 }

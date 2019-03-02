@@ -160,9 +160,10 @@ class AddFlat extends React.Component {
 
                     <section className="box">
                         <label className="boxTitle">Czas obowiązywania umowy</label><br />
-                        Data rozpoczęcia: <input type="date" placeholder="Początek umowy" />
-                        Data zakończenia: <input type="date" placeholder="Koniec umowy" />
-                        Dodatkowe informacje:<br /> <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="30" />
+                        <p>Data rozpoczęcia:</p><input type="date" placeholder="Początek umowy" />
+                        <p>Data zakończenia:</p><input type="date" placeholder="Koniec umowy" />
+                        <p>Dodatkowe informacje:</p >
+                        <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="25" />
                     </section>
 
                     <section className="submitBox">

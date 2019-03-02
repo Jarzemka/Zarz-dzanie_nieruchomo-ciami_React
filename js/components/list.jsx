@@ -32,7 +32,12 @@ class FlatsListTable extends React.Component {
                 console.log(err)
             })
     }
-
+    handleEditBtn = () => {
+        console.log("delete");
+        const info = [...this.state.info];
+        // const index = info.findIndex(info => info.number === id);
+        // console.log(index);
+    }
     handleDeleteBtn = () => {
         console.log("delete");
         const info = [...this.state.info];
@@ -52,11 +57,12 @@ class FlatsListTable extends React.Component {
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
                 city={info.property.address.city}
+                edit={this.handleEditBtn}
                 delete={this.handleDeleteBtn}
             />
         ));
         return (
-            <ul>
+            <ul id="propertyList">
                 {this.state.isLoaded ? list : "Wczytuję dane..."}
             </ul>
         );

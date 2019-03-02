@@ -8,19 +8,13 @@ import {
     NavLink,
 } from 'react-router-dom';
 
-const handleEditBtn = () => {
-    console.log("edytuj");
-}
-
-const handleRmBtn = () => {
-    console.log("usun")
-}
 
 const ElementList = (props) => {
     return (
-        <li >
+        <li className="listElemContainer">
             <span className="listElem">{props.type}. {props.dict} {props.address} {props.city}</span>
-            <button className="listBtn" onClick={props.delete}>Usuń</button>
+            <button className="editBtn" onClick={props.edit}>Edytuj</button>
+            <button className="deleteBtn" onClick={props.delete}>Usuń</button>
         </li>
     )
 }
