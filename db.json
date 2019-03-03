@@ -58,14 +58,14 @@
             },
             "renovation": [
                 {
-                    "id": "",
-                    "data": "",
+                    "id": "1",
+                    "data": "01-04-2018",
                     "costs": [
                         {
-                            "id": "",
-                            "cost": "",
+                            "id": "3",
+                            "cost": "12.000 zł",
                             "status": "",
-                            "description": ""
+                            "description": "Wymiana okien"
                         }
                     ],
                     "status": ""

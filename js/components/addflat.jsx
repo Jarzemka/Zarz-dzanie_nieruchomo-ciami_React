@@ -47,7 +47,8 @@ class AddFlat extends React.Component {
 
     handleChange = (e) => {
         e.preventDefault();
-        console.log(e.target.value)
+        console.log(e.target.value);
+
         this.setState({
             value: e.target.value,
         });
@@ -55,7 +56,8 @@ class AddFlat extends React.Component {
 
     btnSubmit = (e) => {
         e.preventDefault();
-        const dict = [this.state.dict]
+        const dict = [...this.state.dict];
+
         this.setState({
             person: {
                 "name": e.target.name.value,
@@ -78,27 +80,32 @@ class AddFlat extends React.Component {
             info: [],
             dict,
         });
+        console.log(dict);
     };
 
     fetchSetData = () => {
-        const url = '';
+        const url = "";
         fetch(url)
             .then(resp => resp.json())
             .then(resp => {
                 console.log(resp);
                 this.setState({
-                    info: '',
+                    info: "",
                 });
                 console.log(this.state);
             }).catch(err => {
                 console.log(err);
             });
     };
+
     Test = () => {
         console.log("test");
     }
+
     componentDidMount() {
-        setTimeout(this.fetchSetData, 1);
+        setTimeout(this.fetchSetData, 0);
+        console.log("tets");
+        console.log(this.props);
     }
 
     render() {

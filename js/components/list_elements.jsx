@@ -8,11 +8,13 @@ import {
     NavLink,
 } from 'react-router-dom';
 
-
+const Test = () => {
+    console.log("dziala")
+}
 const ElementList = (props) => {
     return (
         <li className="listElemContainer">
-            <span className="listElem">{props.type}. {props.dict} {props.address} {props.city}</span>
+            <span className="listElem" contentEditable={props.contentEdit}>{props.type}. {props.dict} {props.address} {props.city}</span>
             <button className="editBtn" onClick={props.edit}>Edytuj</button>
             <button className="deleteBtn" onClick={props.delete}>Usuń</button>
         </li>

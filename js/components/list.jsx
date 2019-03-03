@@ -16,7 +16,8 @@ class FlatsListTable extends React.Component {
         info: [],
         dict: this.props.dict,
         isLoaded: false,
-        contentEditable: false,
+        contentEdit: false,
+        editBtnText: "Edytuj"
     }
 
     fetchData = () => {
@@ -32,17 +33,35 @@ class FlatsListTable extends React.Component {
                 console.log(err)
             })
     }
-    handleEditBtn = () => {
-        console.log("delete");
+
+    handleEditBtn(number) {
+        console.log("edit");
         const info = [...this.state.info];
-        // const index = info.findIndex(info => info.number === id);
-        // console.log(index);
+        const index = info.findIndex(info => info.number === number);
+        console.log(index);
+
+        if (this.state.contentEdit == false) {
+            this.setState({
+                contentEdit: true,
+                editBtnText: "Zapisz",
+            })
+        } else {
+            this.setState({
+                contentEdit: false,
+                editBtnText: "Edytuj",
+            })
+        }
     }
-    handleDeleteBtn = () => {
+
+    handleDeleteBtn(number) {
         console.log("delete");
         const info = [...this.state.info];
-        // const index = info.findIndex(info => info.number === id);
-        // console.log(index);
+        const index = info.findIndex(info => info.number === number);
+        console.log(index);
+        info.splice(index, 1);
+        this.setState({
+            info
+        })
     }
 
     componentDidMount() {
@@ -57,8 +76,10 @@ class FlatsListTable extends React.Component {
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
                 city={info.property.address.city}
-                edit={this.handleEditBtn}
-                delete={this.handleDeleteBtn}
+                btnText={this.state.editBtnText}
+                contentEdit={this.state.contentEdit}
+                edit={this.handleEditBtn.bind(this, info.number)}
+                delete={this.handleDeleteBtn.bind(this, info.number)}
             />
         ));
         return (

@@ -49,7 +49,12 @@ class Monitoring extends React.Component {
 }
 
 class Main extends React.Component {
+    state = {
+        info: this.props.test
+    }
     render() {
+        console.log("test");
+        console.log(this.props);
         return (
             <div>
                 <div id="navigation">
@@ -58,7 +63,7 @@ class Main extends React.Component {
                     <NavLink to="/monitoring" className="nav">Monitoruj zyski i koszty</NavLink>
                 </div>
                 <div id="alerts">
-                    <h1>Przypomnienie 1</h1>
+                    {/* <h1>{this.state.info.renovation.costs}</h1> */}
                     <h1>Przypomnienie 2</h1>
                     <h1>Przypomnienie 3</h1>
                 </div>
@@ -84,31 +89,42 @@ class App extends React.Component {
                 this.setState({
                     dict: resp[0],
                 });
-                console.log(this.state);
             }).catch(err => {
                 console.log(err);
             })
     }
 
-
+    fetchSetData = () => {
+        const url = "http://localhost:3000/info";
+        fetch(url)
+            .then(resp => resp.json())
+            .then(resp => {
+                console.log(resp);
+                this.setState({
+                    info: resp,
+                });
+            }).catch(err => {
+                console.log(err);
+            });
+    };
 
     componentDidMount() {
         setTimeout(this.fetchDiki, 1);
-        const url = 'http://localhost:3000/dictionaries';
-        let respone = fetch(url);
-
+        setTimeout(this.fetchSetData, 2);
+        // const url = 'http://localhost:3000/dictionaries';
+        // let respone = fetch(url);
     }
 
     render() {
-        const url = 'http://localhost:3000/dictionaries';
-        let respone = fetch(url);
-
         return (
             <HashRouter>
                 <div>
                     <h1 id="appName">Dev-App</h1>
                     <Switch>
-                        <Route exact path='/' component={Main} />
+                        <Route exact path='/'
+                            render={(props) => <Main test={this.state.info} />}
+                        // component={Main}
+                        />
                         <Route path='/newflat'
                             render={(props) => <NewFlat dict={this.state.dict} />}
                         />

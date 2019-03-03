@@ -1,14 +1,15 @@
 @import "./base";
+
 //list
 #propertyList {
-    border: 1px solid red;
+    border-bottom: 1px solid #ccc;
     @media #{$phone},#{$tablet},#{$desk} {
         margin-top: 10px;
     }
 }
 
 .listElemContainer {
-    border: 1px solid black;
+    border-top: 1px solid #ccc;
     position: relative;
     @media #{$phone} {
         height: 20px;
@@ -41,6 +42,9 @@
 }
 .editBtn {
     position: absolute;
+    background-color: #D4D2A5;
+    border: solid #D4D2A5;
+    border-radius: 20px;
     @media #{$phone} {
         width: 30px;
         font-size: 8px;
@@ -55,14 +59,17 @@
     }
     @media #{$desk} {
         font-size: 12px;
-        width: 50px;
+        width: 70px;
         top: 9px;
-        right: 70px;
+        right: 90px;
     }
 
 }
 .deleteBtn {
     position: absolute;
+    background-color: #D4D2A5;
+    border: solid #D4D2A5;
+    border-radius: 20px;
     @media #{$phone} {
         width: 30px;
         font-size: 8px;
@@ -76,13 +83,15 @@
         right: 5px;
     }
     @media #{$desk} {
-        width: 50px;
+        width: 70px;
         font-size: 12px;
         top: 9px;
         right: 10px;
     }
 }
-
+.editBtn, .deleteBtn:hover {
+    cursor: pointer;
+}
 .editBtn, .deleteBtn::after {
     clear: both;
     display: inline-block;

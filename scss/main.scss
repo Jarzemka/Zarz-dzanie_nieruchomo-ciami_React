@@ -5,15 +5,16 @@
 
 //main option
 h2 {
-    @media #{$phone},#{$tablet} {
-        text-align: center;
-    }
+    text-align: center;
+    // @media #{$phone},#{$tablet} {
+    //     text-align: center;
+    // }
 }
 
 .container {
     width: 80%;
     margin: auto;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     @media #{$phone} {
         font-size: 12px;
         height: 1300px;
@@ -24,7 +25,6 @@ h2 {
     }
     @media #{$desk} {
         height: 800px;
-        background-color: orange;
     }
 };
 
@@ -80,10 +80,8 @@ li {
 
 .backTo {
     text-decoration: none;
-    border: 1px solid gray;
     height: 20px;
     width: 100%;
-    background-color: #7F9172;
 };
 
 //main alerts
