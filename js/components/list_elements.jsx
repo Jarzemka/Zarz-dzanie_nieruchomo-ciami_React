@@ -15,7 +15,7 @@ const ElementList = (props) => {
     return (
         <li className="listElemContainer">
             <span className="listElem" contentEditable={props.contentEdit}>{props.type}. {props.dict} {props.address} {props.city}</span>
-            <button className="editBtn" onClick={props.edit}>Edytuj</button>
+            <button className="editBtn" onClick={props.edit}>{props.contentEdit ? "Zapisz" : "Usuń"}</button>
             <button className="deleteBtn" onClick={props.delete}>Usuń</button>
         </li>
     )

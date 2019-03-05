@@ -39,18 +39,20 @@ class FlatsListTable extends React.Component {
         const info = [...this.state.info];
         const index = info.findIndex(info => info.number === number);
         console.log(index);
-
-        if (this.state.contentEdit == false) {
-            this.setState({
-                contentEdit: true,
-                editBtnText: "Zapisz",
-            })
-        } else {
-            this.setState({
-                contentEdit: false,
-                editBtnText: "Edytuj",
-            })
-        }
+        this.setState({
+            contentEdit: !this.state.contentEdit
+        })
+        // if (this.state.contentEdit == false) {
+        //     this.setState({
+        //         contentEdit: true,
+        //         editBtnText: "Zapisz",
+        //     })
+        // } else {
+        //     this.setState({
+        //         contentEdit: false,
+        //         editBtnText: "Edytuj",
+        //     })
+        // }
     }
 
     handleDeleteBtn(number) {
