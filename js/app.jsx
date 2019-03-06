@@ -50,11 +50,17 @@ class Monitoring extends React.Component {
 
 class Main extends React.Component {
     state = {
-        info: this.props.test
+        info: []
+    }
+    componentDidMount() {
+        this.setState({
+            info: this.props.test,
+        })
     }
     render() {
-        console.log("test");
-        console.log(this.props);
+        // console.log("test");
+        // console.log(this.props.test[0]);
+
         return (
             <div>
                 <div id="navigation">
@@ -63,7 +69,7 @@ class Main extends React.Component {
                     <NavLink to="/monitoring" className="nav">Monitoruj zyski i koszty</NavLink>
                 </div>
                 <div id="alerts">
-                    {/* <h1>{this.state.info.renovation.costs}</h1> */}
+                    {/* <h1>{this.props.test[0].number}</h1> */}
                     <h1>Przypomnienie 2</h1>
                     <h1>Przypomnienie 3</h1>
                 </div>

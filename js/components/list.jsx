@@ -41,18 +41,7 @@ class FlatsListTable extends React.Component {
         console.log(index);
         this.setState({
             contentEdit: !this.state.contentEdit
-        })
-        // if (this.state.contentEdit == false) {
-        //     this.setState({
-        //         contentEdit: true,
-        //         editBtnText: "Zapisz",
-        //     })
-        // } else {
-        //     this.setState({
-        //         contentEdit: false,
-        //         editBtnText: "Edytuj",
-        //     })
-        // }
+        });
     }
 
     handleDeleteBtn(number) {
@@ -63,7 +52,7 @@ class FlatsListTable extends React.Component {
         info.splice(index, 1);
         this.setState({
             info
-        })
+        });
     }
 
     componentDidMount() {

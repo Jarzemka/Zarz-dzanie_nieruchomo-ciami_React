@@ -326,9 +326,28 @@ button.form {
         margin-left: 3%;
     }
 }
+
 .submitBox button {
     position: absolute;
     background-color: #D4D2A5;
+    background-image: -webkit-linear-gradient(top, #D4D2A5, #A3A27F);
+    background-image: -moz-linear-gradient(top, #D4D2A5, #A3A27F);
+    background-image: -ms-linear-gradient(top, #D4D2A5, #A3A27F);
+    background-image: -o-linear-gradient(top, #D4D2A5, #A3A27F);
+    background-image: linear-gradient(to bottom, #D4D2A5, #A3A27F);
+    -webkit-border-radius: 20px;
+    -moz-border-radius:20px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #D4D2A5;
+    box-shadow: 1px 1px 20px 0px #ADADAD;
+    -webkit-box-shadow: 1px 1px 8px 0px #ADADAD;
+    -moz-box-shadow: 1px 1px 8px 0px #ADADAD;
+    text-shadow: 1px 1px 7px #000000;
+
+
     @media #{$phone}{
         left: 9vw;
         font-size: 7px;
