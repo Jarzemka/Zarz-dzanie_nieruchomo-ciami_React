@@ -49,7 +49,6 @@ class AddFlat extends React.Component {
             internet: "",
             tv: "",
             cableTv: "",
-            rentPrice: "00,00",
         },
         text: "",
         isLoaded: false,
@@ -62,34 +61,10 @@ class AddFlat extends React.Component {
             value: e.target.value,
         });
     }
-    handleEstimateInput = (e) => {
-
-        console.log(e.target.name)
-    }
-
-    handleCheckboxBalcony = (e) => {
-        console.log(e.target.value);
-    }
-
-    handleCheckboxGarage = () => {
-        this.setState({
-            propertyDescription: {
-                "isGarage": !this.state.propertyDescription.isGarage,
-            }
-        })
-    }
-
-
-    handleEstimateBtn = (e) => {
-        e.preventDefault();
-        console.log("test");
-
-    }
 
     btnSubmit = (e) => {
         e.preventDefault();
         const dict = [...this.state.dict];
-
         this.setState({
             person: {
                 "name": e.target.name.value,
@@ -107,6 +82,8 @@ class AddFlat extends React.Component {
                 "floors": e.target.floors.value,
                 "insurance": e.target.insurance.value,
                 "agency": e.target.agency.value,
+                "isBalcony": "",
+                "isGarage": "",
             },
             estimate: {
                 "rent": e.target.rent.value,
@@ -115,29 +92,34 @@ class AddFlat extends React.Component {
                 "internet": e.target.internet.value,
                 "tv": e.target.tv.value,
                 "cableTv": e.target.cableTv.value,
-                "isBalcony": "",
-                "isGarage:": "",
             },
             text: e.target.text.value,
             info: [],
             dict,
         });
         //--------------------
-        const post = {
-            number: "1236",
-            property: "test",
-            payment: "1200",
-            rent: "5"
-        }
-        fetch("http://localhost:3000/posts", {
-            method: 'POST',
-            headers: new Headers(),
-            body: JSON.stringify(post),
 
-        })
-            .then(resp => resp.json())
-            .then(data => console.log(data))
+        const data = {
+            person: {
+                "name": this.state.person.name,
+            },
+            propertyDescription: {},
+            estimate: {},
+            text: "",
+        }
+        const options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        fetch('http://localhost:3000/posts', options)
+            .then(response => response.json())
+            .then(json => console.log(json))
             .catch((err) => console.log(err))
+
     };
 
     componentDidMount() {
@@ -183,7 +165,6 @@ class AddFlat extends React.Component {
                 <input type="text" name="internet" placeholder="Internet" />
                 <input type="text" name="tv" placeholder="Abonament radiowo-telewizyjny" />
                 <input type="text" name="cableTv" placeholder="Telewizja kablowa" />
-                <div>wycena czynszu: </div>
             </section>
             <section className="box">
                 <label className="boxTitle">Czas obowiązywania umowy</label><br />

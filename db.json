@@ -161,6 +161,7 @@
       "rent": 5
     }
   ],
+  "posts": [],
   "dictionaries": [
     {
       "item": {
@@ -191,14 +192,6 @@
         "2": "Aktualna",
         "3": "Archiwalna"
       }
-    }
-  ],
-  "posts": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
     }
   ]
 }
