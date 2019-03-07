@@ -53,13 +53,14 @@ class Main extends React.Component {
         info: []
     }
     componentDidMount() {
-        this.setState({
-            info: this.props.test,
-        })
+
     }
     render() {
-        // console.log("test");
-        // console.log(this.props.test[0]);
+        const alerts = <div id="alerts">
+            <h1>1</h1>
+            <h1>Przypomnienie 2</h1>
+            <h1>Przypomnienie 3</h1>
+        </div>;
 
         return (
             <div>
@@ -68,11 +69,7 @@ class Main extends React.Component {
                     <NavLink to="/flatslist" className="nav">Zobacz listę nieruchomości</NavLink>
                     <NavLink to="/monitoring" className="nav">Monitoruj zyski i koszty</NavLink>
                 </div>
-                <div id="alerts">
-                    {/* <h1>{this.props.test[0].number}</h1> */}
-                    <h1>Przypomnienie 2</h1>
-                    <h1>Przypomnienie 3</h1>
-                </div>
+                {alerts}
             </div>
         )
     }
@@ -128,8 +125,7 @@ class App extends React.Component {
                     <h1 id="appName">Deweloper</h1>
                     <Switch>
                         <Route exact path='/'
-                            render={(props) => <Main test={this.state.info} />}
-                        // component={Main}
+                            render={(props) => <Main setInfo={this.state.info} />}
                         />
                         <Route path='/newflat'
                             render={(props) => <NewFlat dict={this.state.dict} />}

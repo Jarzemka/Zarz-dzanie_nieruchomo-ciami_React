@@ -123,21 +123,21 @@ class AddFlat extends React.Component {
             dict,
         });
         //--------------------
-        // const post = {
-        //     number: "1236",
-        //     property: "test",
-        //     payment: "1200",
-        //     rent: "5"
-        // }
-        // fetch("http://localhost:3000/info", {
-        //     method: 'post',
-        //     body: JSON.stringify(post),
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     }
-        // })
-        //     .then(resp => resp.json())
-        //     .then(data => console.log(data))
+        const post = {
+            number: "1236",
+            property: "test",
+            payment: "1200",
+            rent: "5"
+        }
+        fetch("http://localhost:3000/posts", {
+            method: 'POST',
+            headers: new Headers(),
+            body: JSON.stringify(post),
+
+        })
+            .then(resp => resp.json())
+            .then(data => console.log(data))
+            .catch((err) => console.log(err))
     };
 
     componentDidMount() {
