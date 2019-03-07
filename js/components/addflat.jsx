@@ -27,6 +27,7 @@ class AddFlat extends React.Component {
             name: "",
             surename: "",
             pesel: "",
+            id: "",
             email: "",
             phone: "",
         },
@@ -41,6 +42,15 @@ class AddFlat extends React.Component {
             isBalcony: false,
             isGarage: false,
         },
+        estimate: {
+            rent: "",
+            price: "",
+            utilities: "",
+            internet: "",
+            tv: "",
+            cableTv: "",
+            rentPrice: "00,00",
+        },
         text: "",
         isLoaded: false,
     }
@@ -48,10 +58,32 @@ class AddFlat extends React.Component {
     handleChange = (e) => {
         e.preventDefault();
         console.log(e.target.value);
-
         this.setState({
             value: e.target.value,
         });
+    }
+    handleEstimateInput = (e) => {
+
+        console.log(e.target.name)
+    }
+
+    handleCheckboxBalcony = (e) => {
+        console.log(e.target.value);
+    }
+
+    handleCheckboxGarage = () => {
+        this.setState({
+            propertyDescription: {
+                "isGarage": !this.state.propertyDescription.isGarage,
+            }
+        })
+    }
+
+
+    handleEstimateBtn = (e) => {
+        e.preventDefault();
+        console.log("test");
+
     }
 
     btnSubmit = (e) => {
@@ -63,6 +95,7 @@ class AddFlat extends React.Component {
                 "name": e.target.name.value,
                 "surename": e.target.surname.value,
                 "pesel": e.target.pesel.value,
+                "id": e.target.id.value,
                 "email": e.target.email.value,
                 "phone": e.target.phone.value,
             },
@@ -75,28 +108,37 @@ class AddFlat extends React.Component {
                 "insurance": e.target.insurance.value,
                 "agency": e.target.agency.value,
             },
+            estimate: {
+                "rent": e.target.rent.value,
+                "price": e.target.price.value,
+                "utilities": e.target.utilities.value,
+                "internet": e.target.internet.value,
+                "tv": e.target.tv.value,
+                "cableTv": e.target.cableTv.value,
+                "isBalcony": "",
+                "isGarage:": "",
+            },
             text: e.target.text.value,
             info: [],
             dict,
         });
         //--------------------
-        const post = {
-            number: "1236",
-            property: "test",
-            payment: "1200",
-            rent: "5"
-        }
-        fetch("http://localhost:3000/info", {
-            method: 'post',
-            body: JSON.stringify(post),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-            .then(resp => resp.json())
-            .then(data => console.log(data))
+        // const post = {
+        //     number: "1236",
+        //     property: "test",
+        //     payment: "1200",
+        //     rent: "5"
+        // }
+        // fetch("http://localhost:3000/info", {
+        //     method: 'post',
+        //     body: JSON.stringify(post),
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     }
+        // })
+        //     .then(resp => resp.json())
+        //     .then(data => console.log(data))
     };
-
 
     componentDidMount() {
         console.log("komponent zamontowany");
@@ -135,13 +177,13 @@ class AddFlat extends React.Component {
             <Person />
             <section className="box">
                 <label className="boxTitle">Wycena</label>
-                <input type="text" placeholder="Czynsz" />
-                <input type="text" placeholder="Cena za m²" />
-                <input type="text" placeholder="Media" />
-                <input type="text" placeholder="Internet" />
-                <input type="text" placeholder="Abonament radiowo-telewizyjny" />
-                <input type="text" placeholder="Telewizja kablowa" />
-                <div>Tu mnoznik cena*powierzchnia</div>
+                <input type="text" name="rent" placeholder="Czynsz" />
+                <input type="text" name="price" placeholder="Cena za m²" />
+                <input type="text" name="utilities" placeholder="Media" />
+                <input type="text" name="internet" placeholder="Internet" />
+                <input type="text" name="tv" placeholder="Abonament radiowo-telewizyjny" />
+                <input type="text" name="cableTv" placeholder="Telewizja kablowa" />
+                <div>wycena czynszu: </div>
             </section>
             <section className="box">
                 <label className="boxTitle">Czas obowiązywania umowy</label><br />

@@ -8,10 +8,6 @@ import {
     NavLink,
 } from 'react-router-dom';
 
-function Test() {
-    console.log("test");
-}
-
 const Property = props => {
     return (
         <section className="box">
@@ -26,14 +22,14 @@ const Property = props => {
             <label htmlFor="balcony" className="inputContainer">
 
                 <p>Balkon</p>
-                <input name="balcony" type="checkbox" id="conviBalcony" onChange={props.onChange} />
+                <input name="balcony" type="checkbox" id="conviBalcony" />
                 <span className="checkmark"></span>
 
 
             </label>
             <label htmlFor="garage" className="inputContainer">
                 <p>Garaż</p>
-                <input name="garage" type="checkbox" id="conviGarage" onChange={props.onChange} />
+                <input name="garage" type="checkbox" id="conviGarage" />
                 <span className="checkmark"></span>
 
             </label>

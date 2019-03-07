@@ -15,7 +15,7 @@ const Person = props => {
             <input type="text" name='name' placeholder="Imię najemcy" />
             <input type="text" name='surname' placeholder="Nazwisko najemcy" />
             <input type="number" name='pesel' placeholder="PESEL" />
-            <input type="number" name='pesel' placeholder="Seria i numer dowou osobistego" />
+            <input type="text" name='id' placeholder="Seria i numer dowou osobistego" />
             <input type="email" name="email" placeholder="example@example.com" />
             <input type="text" name="phone" placeholder="Telefon kontaktowy" />
         </section>
