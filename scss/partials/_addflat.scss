@@ -6,6 +6,7 @@ section {
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
+    border-radius: 10px;
     height: 250px;
     @media #{$phone} {
         display: block;
@@ -29,6 +30,7 @@ section {
 input{
     display: flex;
     justify-content: center;
+    border: 0.5px solid #ccc;
     @media #{$phone},#{$tablet} {
         width: 10vw;
     }
@@ -158,6 +160,7 @@ label.title {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
+
     @media #{$phone} {
         width: 70px;
         height: 25px;
@@ -169,6 +172,8 @@ label.title {
     @media #{$desk}{
         width: 100px;
         height: 25px;
+        left: 10vw;
+        bottom: 0;
     }
 }
 .inputContainer p {
@@ -182,9 +187,12 @@ label.title {
         top: 0;
     }
     @media #{$desk} {
-        left: 10vw;
-        top: 2px;
-        padding-left: 5%;
+        left: 2.5vw;
+        top: 3px;
+        padding-left: 0%;
+        // left: 10vw;
+        // top: 2px;
+        // padding-left: 5%;
     }
 
 }
@@ -233,10 +241,13 @@ label.title {
         top: 0;
     }
     @media #{$desk} {
+        left: 0vw;
+        top: 0px;
+        padding-left: 0%;
         height: 25px;
         width: 25px;
-        left: 8vw;
-        top: 0;
+        // left: 8vw;
+        // top: 0;
     }
 }
 
@@ -327,15 +338,10 @@ button.form {
     }
 }
 
+
 .submitBox button {
     position: absolute;
-    background-color: #D4D2A5;
-    background-image: -webkit-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -moz-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -ms-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -o-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: linear-gradient(to bottom, #D4D2A5, #A3A27F);
-    -webkit-border-radius: 20px;
+    background-color: #3A405A;
     -moz-border-radius:20px;
     border-radius: 20px;
     color: #fff;

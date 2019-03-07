@@ -14,7 +14,8 @@ h2 {
 .container {
     width: 80%;
     margin: auto;
-    border: 1px solid #ccc;
+    border: 1px solid #BFACB5;
+    border-radius: 10px;
     @media #{$phone} {
         font-size: 12px;
         height: 1300px;
@@ -44,7 +45,7 @@ li {
 #navigation {
     display: flex;
     flex-wrap: wrap;
-    background-color: #7F9172;
+    background-color: #3A405A;
     text-align: center;
     border: 1px solid #7A6263;
 
@@ -72,10 +73,10 @@ li {
     }
 };
 .nav:hover{
+    color: #E8E9E5;
     border: 1px solid rgba(0,0,0,.125);
-    border-radius: 15px;
-    background-color: rgb(115, 131, 103);
-    transition-duration: 1s;
+    // border-radius: 15px;
+    background-color: #525A7C;
 }
 
 .backTo {
@@ -89,7 +90,7 @@ li {
     border-radius: 20px;
     margin: 60px auto;
     text-align: center;
-    border: 1px solid #7A6263;
+    border: 1px solid #BEBBBB;
     width: 50%;
     @media #{$phone},#{$tablet} {
         margin: 30px auto;
@@ -98,7 +99,7 @@ li {
 }
 #alerts > h1:hover {
     color: #F7F7F2;
-    background-color: #7A6263;
+    background-color: #BEBBBB;
     transform: scale(1.1, 1.1);
     transition-duration: 1s;
     cursor: pointer;

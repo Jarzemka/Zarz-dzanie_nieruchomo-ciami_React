@@ -42,7 +42,7 @@
 }
 .editBtn {
     position: absolute;
-    
+
     @media #{$phone} {
         width: 30px;
         font-size: 8px;
@@ -86,12 +86,8 @@
 }
 
 .editBtn, .deleteBtn {
-    background-color: #D4D2A5;
-    background-image: -webkit-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -moz-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -ms-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: -o-linear-gradient(top, #D4D2A5, #A3A27F);
-    background-image: linear-gradient(to bottom, #D4D2A5, #A3A27F);
+    height: 25px;
+    background-color: #3A405A;
     -webkit-border-radius: 20px;
     -moz-border-radius:20px;
     border-radius: 20px;

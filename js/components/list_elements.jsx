@@ -14,10 +14,7 @@ const Test = () => {
 const ElementList = (props) => {
     return (
         <li className="listElemContainer">
-            <span className="listElem"
-                // contentEditable={props.contentEdit}
-                contentEditable={false}
-            >
+            <span className="listElem" contentEditable={props.contentEdit}>
                 {props.type}. {props.dict} {props.address} {props.city}
             </span>
             <button className="editBtn" onClick={props.edit}>{props.contentEdit ? "Zapisz" : "Edytuj"}</button>

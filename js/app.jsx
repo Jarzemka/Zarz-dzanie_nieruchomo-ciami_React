@@ -125,7 +125,7 @@ class App extends React.Component {
         return (
             <HashRouter>
                 <div>
-                    <h1 id="appName">Dev-App</h1>
+                    <h1 id="appName">Deweloper</h1>
                     <Switch>
                         <Route exact path='/'
                             render={(props) => <Main test={this.state.info} />}
