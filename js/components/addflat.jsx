@@ -55,6 +55,8 @@ class AddFlat extends React.Component {
         },
         text: "",
         isLoaded: false,
+        submitBtn: false,
+        printBtn: true,
     }
 
     handleChange = (e) => {
@@ -83,143 +85,164 @@ class AddFlat extends React.Component {
         })
     }
 
-
     btnSubmit = (e) => {
         e.preventDefault();
-        const dict = [...this.state.dict];
+        const test = e.target.name.value;
+        if (test === "") {
+            console.log("ok");
+            alert("UWAGA!!! Aby dodać nieruchomość uzupełnij formularz");
+        } else {
+            const dict = [...this.state.dict];
 
-        this.setState({
-            person: {
-                "name": e.target.name.value,
-                "surename": e.target.surname.value,
-                "pesel": e.target.pesel.value,
-                "idNum": e.target.idNum.value,
-                "email": e.target.email.value,
-                "phone": e.target.phone.value,
-            },
-            propertyDescription: {
-                "address": e.target.address.value,
-                "city": e.target.city.value,
-                "rooms": e.target.rooms.value,
-                "area": e.target.area.value,
-                "floors": e.target.floors.value,
-                "insurance": e.target.insurance.value,
-                "agency": e.target.agency.value,
-            },
-            estimate: {
-                "rent": e.target.rent.value,
-                "price": e.target.price.value,
-                "utilities": e.target.utilities.value,
-                "internet": e.target.internet.value,
-                "tv": e.target.tv.value,
-                "cableTv": e.target.cableTv.value,
-            },
-            rent: {
-                "begin": e.target.begin.value,
-                "end": e.target.end.value,
-            },
-            text: e.target.text.value,
-            info: [],
-            dict,
-        });
-
-        //--------------------
-
-        const data = {
-            "number": this.state.number,
-            "property": {
-                "type": 3,
-                "address": {
-                    "street": e.target.address.value,
+            this.setState({
+                person: {
+                    "name": e.target.name.value,
+                    "surename": e.target.surname.value,
+                    "pesel": e.target.pesel.value,
+                    "idNum": e.target.idNum.value,
+                    "email": e.target.email.value,
+                    "phone": e.target.phone.value,
+                },
+                propertyDescription: {
+                    "address": e.target.address.value,
                     "city": e.target.city.value,
-                    "geo": {
-                        "lati": "",
-                        "longi": ""
-                    }
-                },
-                "values": {
                     "rooms": e.target.rooms.value,
-                    "floor": e.target.floors.value,
                     "area": e.target.area.value,
-                    "balcony": this.state.propertyDescription.isBalcony,
-                    "garage": this.state.propertyDescription.isGarage
+                    "floors": e.target.floors.value,
+                    "insurance": e.target.insurance.value,
+                    "agency": e.target.agency.value,
                 },
-                "insurance": {
-                    "company": "",
-                    "number": ""
+                estimate: {
+                    "rent": e.target.rent.value,
+                    "price": e.target.price.value,
+                    "utilities": e.target.utilities.value,
+                    "internet": e.target.internet.value,
+                    "tv": e.target.tv.value,
+                    "cableTv": e.target.cableTv.value,
                 },
-                "agreements": [
-                    {
-                        "id": 2,
-                        "person": {
-                            "name": "",
-                            "surname": "",
-                            "pesel": "",
-                            "email": "",
-                            "phone": ""
-                        },
-                        "begin": "",
-                        "end": "",
-                        "status": 2,
-                        "created": ""
+                rent: {
+                    "begin": e.target.begin.value,
+                    "end": e.target.end.value,
+                },
+                text: e.target.text.value,
+                info: [],
+                dict,
+                submitBtn: !this.state.submitBtn,
+                printBtn: !this.state.printBtn,
+            });
+            //--------------------
+            const data = {
+                "number": this.state.number,
+                "property": {
+                    "type": 3,
+                    "address": {
+                        "street": e.target.address.value,
+                        "city": e.target.city.value,
+                        "geo": {
+                            "lati": "",
+                            "longi": ""
+                        }
                     },
-                    {
-                        "id": 2,
-                        "begin": "",
-                        "end": "",
-                        "status": 3,
-                        "created": ""
-                    }
-                ],
-                "text": "",
-                "description": "",
-                "pictures": [
-                    {
-                        "url": "",
-                        "descr": "",
-                        "created": ""
-                    }
-                ]
-            },
-            "renovation": [
-                {
-                    "id": "",
-                    "data": "",
-                    "costs": [
+                    "values": {
+                        "rooms": e.target.rooms.value,
+                        "floor": e.target.floors.value,
+                        "area": e.target.area.value,
+                        "balcony": this.state.propertyDescription.isBalcony,
+                        "garage": this.state.propertyDescription.isGarage
+                    },
+                    "insurance": {
+                        "company": "",
+                        "number": ""
+                    },
+                    "agreements": [
                         {
-                            "id": "",
-                            "cost": "",
-                            "status": "",
-                            "description": ""
+                            "id": 2,
+                            "person": {
+                                "name": "",
+                                "surname": "",
+                                "pesel": "",
+                                "email": "",
+                                "phone": ""
+                            },
+                            "begin": "",
+                            "end": "",
+                            "status": 2,
+                            "created": ""
+                        },
+                        {
+                            "id": 2,
+                            "begin": "",
+                            "end": "",
+                            "status": 3,
+                            "created": ""
                         }
                     ],
-                    "status": ""
-                }
-            ],
-            "payment": [
-                {
-                    "id": 1,
-                    "value": "100",
-                    "status": 2
-                }
-            ],
-            "rent": 5,
-            "id": ""
-        }
-
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
+                    "text": "",
+                    "description": "",
+                    "pictures": [
+                        {
+                            "url": "",
+                            "descr": "",
+                            "created": ""
+                        }
+                    ]
+                },
+                "renovation": [
+                    {
+                        "id": "",
+                        "data": "",
+                        "costs": [
+                            {
+                                "id": "",
+                                "cost": "",
+                                "status": "",
+                                "description": ""
+                            }
+                        ],
+                        "status": ""
+                    }
+                ],
+                "payment": [
+                    {
+                        "id": 1,
+                        "value": "100",
+                        "status": 2
+                    }
+                ],
+                "rent": 5,
+                "id": ""
             }
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            fetch('http://localhost:3000/info', options)
+                .then(response => response.json())
+                .then(json => {
+                    console.log(json);
+                    alert("Dodano nową nieruchomość!")
+                }
+                )
+                .catch((err) => {
+                    console.log(err);
+                    alert("coś poszło nie tak...")
+                }
+                )
         }
 
-        fetch('http://localhost:3000/info', options)
-            .then(response => response.json())
-            .then(json => console.log(json))
-            .catch((err) => console.log(err))
+
+
     };
+
+    handlePrintBtn = (e) => {
+        e.preventDefault();
+        console.log("print")
+        alert("Umowa jest drukowana!")
+    }
+
 
     componentDidMount() {
         console.log("komponent zamontowany");
@@ -275,10 +298,10 @@ class AddFlat extends React.Component {
                 <textarea name="text" placeholder="Dodatkowe uwagi" rows="5" cols="25" />
             </section>
             <section className="submitBox">
-                <button className="form" type='submit'>Dodaj nieruchomość</button>
+                <button className="form submit" type='submit' disabled={this.state.submitBtn}>Dodaj nieruchomość</button>
             </section>
             <section className="submitBox">
-                <button className="form" >Drukuj umowę</button>
+                <button className="form print" onClick={this.handlePrintBtn} disabled={this.state.printBtn} >Drukuj umowę</button>
             </section>
         </form>
 

@@ -361,3 +361,11 @@ button.form {
         font-size: 12px;
     }
 }
+
+button.submit:disabled {
+    background-color: #ccc;
+}
+
+button.print:disabled {
+    background-color: #ccc;
+}

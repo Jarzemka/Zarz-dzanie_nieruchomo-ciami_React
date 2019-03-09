@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import AddFlat from './components/addflat.jsx';
 import FlatsListTable from './components/list.jsx';
+import Costs from "./components/monitoring.jsx";
 
 class NewFlat extends React.Component {
     render() {
@@ -43,6 +44,7 @@ class Monitoring extends React.Component {
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Monitoruj zyski i koszty</h2>
+                <Costs />
             </div>
         )
     }

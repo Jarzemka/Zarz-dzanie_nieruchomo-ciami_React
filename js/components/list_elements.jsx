@@ -40,7 +40,7 @@ class ElementList extends React.Component {
         //     .catch((err) => console.log(err))
     }
 
-    handleDeleteBtn(number) {
+    handleDeleteBtn(id) {
         console.log("delete");
         // console.log(this)
         // const info = [...this.state.info];
