@@ -29,7 +29,7 @@ W trakcie budowy
 
 #Instalation:
 
-- do konsoli wkleić poniższy link i sklonować
+- do konsoli wkleić link i sklonować
 https://github.com/Jarzemka/Zarzadzanie_nieruchomosciami_React
 - instalacja json serwer ---> npm install json-server -g
 -instalacja package.json ---> npm install
