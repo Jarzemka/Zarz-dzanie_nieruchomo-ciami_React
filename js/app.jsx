@@ -29,7 +29,7 @@ class FlatsList extends React.Component {
             <div className="container">
                 <NavLink to="/" className="backTo">Strona główna</NavLink>
                 <h2>Lista nieruchomości</h2>
-                <FlatsListTable dict={this.props.dict} />
+                <FlatsListTable dict={this.props.dict} info={this.props.info} />
             </div>
         )
     }
@@ -49,11 +49,12 @@ class Monitoring extends React.Component {
 }
 
 class Main extends React.Component {
-    state = {
-        info: this.props.setInfo
+    constructor(props) {
+        super(props);
+        this.state = {
+            info: this.props.info
+        }
     }
-
-
     render() {
         const alerts = <div id="alerts">
             <h1>1</h1>
@@ -125,13 +126,13 @@ class App extends React.Component {
                     <h1 id="appName">Deweloper</h1>
                     <Switch>
                         <Route exact path='/'
-                            render={(props) => <Main setInfo={this.state.info} />}
+                            render={(props) => <Main info={this.state.info} />}
                         />
                         <Route path='/newflat'
                             render={(props) => <NewFlat dict={this.state.dict} />}
                         />
                         <Route path='/flatslist'
-                            render={(props) => <FlatsList dict={this.state.dict} />}
+                            render={(props) => <FlatsList dict={this.state.dict} info={this.state.info} />}
                         />
                         <Route path="/monitoring" component={Monitoring} />
                     </Switch>

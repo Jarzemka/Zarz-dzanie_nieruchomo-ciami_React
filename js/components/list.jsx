@@ -12,12 +12,13 @@ import {
 } from 'react-router-dom';
 
 class FlatsListTable extends React.Component {
-    state = {
-        info: [],
-        dict: this.props.dict,
-        isLoaded: false,
-        contentEdit: false,
-        editBtnText: "Edytuj"
+    constructor(props) {
+        super(props);
+        this.state = {
+            info: [],
+            dict: this.props.dict,
+            isLoaded: false,
+        }
     }
 
     fetchData = () => {
@@ -34,27 +35,6 @@ class FlatsListTable extends React.Component {
             })
     }
 
-    handleEditBtn(number) {
-        console.log("edit");
-        const info = [...this.state.info];
-        const index = info.findIndex(info => info.number === number);
-        console.log(index);
-        this.setState({
-            contentEdit: !this.state.contentEdit
-        });
-    }
-
-    handleDeleteBtn(number) {
-        console.log("delete");
-        const info = [...this.state.info];
-        const index = info.findIndex(info => info.number === number);
-        console.log(index);
-        info.splice(index, 1);
-        this.setState({
-            info
-        });
-    }
-
     componentDidMount() {
         setTimeout(this.fetchData, 1000);
     }
@@ -64,13 +44,12 @@ class FlatsListTable extends React.Component {
             <ElementList
                 key={info.number}
                 type={info.number}
+                info={this.state.info[info.number]}
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
                 city={info.property.address.city}
-                btnText={this.state.editBtnText}
-                contentEdit={this.state.contentEdit}
-                edit={this.handleEditBtn.bind(this, info.number)}
-                delete={this.handleDeleteBtn.bind(this, info.number)}
+            // contentEdit={this.state.contentEdit}
+            // delete={this.handleDeleteBtn}
             />
         ));
         return (

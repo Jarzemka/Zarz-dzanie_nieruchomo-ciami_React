@@ -161,6 +161,167 @@
       ],
       "rent": 5,
       "id": 2
+    },
+    {
+      "number": 61,
+      "property": {
+        "type": 3,
+        "address": {
+          "street": "Wieniawskiego 54/8",
+          "city": "Tychy",
+          "geo": {
+            "lati": "",
+            "longi": ""
+          }
+        },
+        "values": {
+          "rooms": "",
+          "floor": "",
+          "area": "",
+          "balcony": true
+        },
+        "insurance": {
+          "company": "",
+          "number": ""
+        },
+        "agreements": [
+          {
+            "id": 2,
+            "person": {
+              "name": "",
+              "surname": "",
+              "pesel": "",
+              "email": "",
+              "phone": ""
+            },
+            "begin": "",
+            "end": "",
+            "status": 2,
+            "created": ""
+          },
+          {
+            "id": 2,
+            "begin": "",
+            "end": "",
+            "status": 3,
+            "created": ""
+          }
+        ],
+        "text": "",
+        "description": "",
+        "pictures": [
+          {
+            "url": "",
+            "descr": "",
+            "created": ""
+          }
+        ]
+      },
+      "renovation": [
+        {
+          "id": "",
+          "data": "",
+          "costs": [
+            {
+              "id": "",
+              "cost": "",
+              "status": "",
+              "description": ""
+            }
+          ],
+          "status": ""
+        }
+      ],
+      "payment": [
+        {
+          "id": 1,
+          "value": "100",
+          "status": 2
+        }
+      ],
+      "rent": 5,
+      "id": 3
+    },
+    {
+      "number": 123,
+      "property": {
+        "type": 3,
+        "address": {
+          "street": "Wieniawskiego 54/8",
+          "city": "Tychy",
+          "geo": {
+            "lati": "",
+            "longi": ""
+          }
+        },
+        "values": {
+          "rooms": "",
+          "floor": "",
+          "area": "",
+          "balcony": false,
+          "garage": false
+        },
+        "insurance": {
+          "company": "",
+          "number": ""
+        },
+        "agreements": [
+          {
+            "id": 2,
+            "person": {
+              "name": "",
+              "surname": "",
+              "pesel": "",
+              "email": "",
+              "phone": ""
+            },
+            "begin": "",
+            "end": "",
+            "status": 2,
+            "created": ""
+          },
+          {
+            "id": 2,
+            "begin": "",
+            "end": "",
+            "status": 3,
+            "created": ""
+          }
+        ],
+        "text": "",
+        "description": "",
+        "pictures": [
+          {
+            "url": "",
+            "descr": "",
+            "created": ""
+          }
+        ]
+      },
+      "renovation": [
+        {
+          "id": "",
+          "data": "",
+          "costs": [
+            {
+              "id": "",
+              "cost": "",
+              "status": "",
+              "description": ""
+            }
+          ],
+          "status": ""
+        }
+      ],
+      "payment": [
+        {
+          "id": 1,
+          "value": "100",
+          "status": 2
+        }
+      ],
+      "rent": 5,
+      "id": 4
     }
   ],
   "dictionaries": [
@@ -193,34 +354,6 @@
         "2": "Aktualna",
         "3": "Archiwalna"
       }
-    }
-  ],
-  "posts": [
-    {
-      "number": 36,
-      "property": {
-        "type": 1,
-        "address": {
-          "street": "",
-          "city": "",
-          "geo": {
-            "lati": "",
-            "longi": ""
-          }
-        },
-        "values": {
-          "rooms": "",
-          "floor": "",
-          "area": "",
-          "isBalcony": false,
-          "isGarage": false
-        },
-        "insurance": {
-          "company": "",
-          "number": ""
-        }
-      },
-      "id": 1
     }
   ]
 }

@@ -9,7 +9,6 @@ import {
 } from 'react-router-dom';
 import Person from './addflat_person.jsx';
 import Property from './addflat_property.jsx';
-import Options from './addflat_options.jsx';
 
 const objects = ["Mieszkanie", "Pokój", "Apartament", "Dom", "Szeregówka", "Garaż"];
 const status = ["do wynajmu", "do remontu", "na sprzedaż", "planowany zakup"];
@@ -123,99 +122,89 @@ class AddFlat extends React.Component {
             info: [],
             dict,
         });
+
         //--------------------
 
         const data = {
-            number: this.state.number,
-            property: {
-                "type": 1,
+            "number": this.state.number,
+            "property": {
+                "type": 3,
                 "address": {
-                    "street": this.state.propertyDescription.address,
-                    "city": this.state.propertyDescription.city,
+                    "street": e.target.address.value,
+                    "city": e.target.city.value,
                     "geo": {
                         "lati": "",
-                        "longi": "",
+                        "longi": ""
                     }
                 },
-                values: {
-                    "rooms": this.state.propertyDescription.rooms,
-                    "floor": this.state.propertyDescription.floors,
-                    "area": this.state.propertyDescription.area,
-                    "isBalcony": this.state.propertyDescription.isBalcony,
-                    "isGarage": this.state.propertyDescription.isGarage,
+                "values": {
+                    "rooms": e.target.rooms.value,
+                    "floor": e.target.floors.value,
+                    "area": e.target.area.value,
+                    "balcony": this.state.propertyDescription.isBalcony,
+                    "garage": this.state.propertyDescription.isGarage
                 },
-                insurance: {
-                    "company": this.state.propertyDescription.agency,
-                    "number": this.state.propertyDescription.insurance,
+                "insurance": {
+                    "company": "",
+                    "number": ""
+                },
+                "agreements": [
+                    {
+                        "id": 2,
+                        "person": {
+                            "name": "",
+                            "surname": "",
+                            "pesel": "",
+                            "email": "",
+                            "phone": ""
+                        },
+                        "begin": "",
+                        "end": "",
+                        "status": 2,
+                        "created": ""
+                    },
+                    {
+                        "id": 2,
+                        "begin": "",
+                        "end": "",
+                        "status": 3,
+                        "created": ""
+                    }
+                ],
+                "text": "",
+                "description": "",
+                "pictures": [
+                    {
+                        "url": "",
+                        "descr": "",
+                        "created": ""
+                    }
+                ]
+            },
+            "renovation": [
+                {
+                    "id": "",
+                    "data": "",
+                    "costs": [
+                        {
+                            "id": "",
+                            "cost": "",
+                            "status": "",
+                            "description": ""
+                        }
+                    ],
+                    "status": ""
                 }
-            }
-            //       "agreements": [
-            //         {
-            //           "id": 1,
-            //           "person": {
-            //             "name": this.state.person.name,
-            //             "surname": this.state.person.surename,
-            //             "pesel": this.state.person.pesel,
-            //                  
-            //             "email": this.state.person.email,
-            //             "phone": this.state.person.phone,
-            //           },
-            //           "begin": "",
-            //           "end": "",
-            //           "status": 3,
-            //           "created": ""
-            //         },
-            //         {
-            //           "id": 2,
-            //           "begin": "",
-            //           "end": "",
-            //           "status": 3,
-            //           "created": ""
-            //         }
-            //       ],
-            //       "text": "",
-            //       "description": "",
-            //       "pictures": [
-            //         {
-            //           "url": "",
-            //           "descr": "",
-            //           "created": ""
-            //         }
-            //       ]
-            //     }
-
-            // person: {
-            //     "name": this.state.person.name,
-            //     "surename": this.state.person.surename,
-            //     "pesel": this.state.person.pesel,
-            //     "idNum": this.state.person.idNum,
-            //     "email": this.state.person.email,
-            //     "phone": this.state.person.phone,
-            // },
-            // propertyDescription: {
-            //     "address": this.state.propertyDescription.address,
-            //     "city": this.state.propertyDescription.city,
-            //     "rooms": this.state.propertyDescription.rooms,
-            //     "area": this.state.propertyDescription.area,
-            //     "floors": this.state.propertyDescription.floors,
-            //     "insurance": this.state.propertyDescription.insurance,
-            //     "agency": this.state.propertyDescription.agency,
-            //     "isBalcony": this.state.propertyDescription.isBalcony,
-            //     "isGarage": this.state.propertyDescription.isGarage,
-            // },
-            // estimate: {
-            //     "rent": this.state.estimate.rent,
-            //     "price": this.state.estimate.price,
-            //     "utilities": this.state.estimate.utilities,
-            //     "internet": this.state.estimate.internet,
-            //     "tv": this.state.estimate.tv,
-            //     "cableTv": this.state.estimate.cableTv,
-            // },
-            // rent: {
-            //     "begin": this.state.rent.begin,
-            //     "end": this.state.rent.end,
-            // },
-            // text: this.state.text,
+            ],
+            "payment": [
+                {
+                    "id": 1,
+                    "value": "100",
+                    "status": 2
+                }
+            ],
+            "rent": 5,
+            "id": ""
         }
 
         const options = {
