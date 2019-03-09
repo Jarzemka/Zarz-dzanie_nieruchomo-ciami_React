@@ -67,10 +67,15 @@ li {
     margin-left: 3%;
     height: 100%;
     text-decoration: none;
+
     @media #{$phone}, #{$tablet} {
         margin: auto;
         width: 30vw;
         font-size: 12px;
+    }
+    @media #{$desk} {
+        font-size: 16px;
+        width: 18vw;
     }
 };
 .nav:hover{

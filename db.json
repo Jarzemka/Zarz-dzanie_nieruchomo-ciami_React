@@ -78,7 +78,8 @@
           "status": 2
         }
       ],
-      "rent": 5
+      "rent": 5,
+      "id": 1
     },
     {
       "number": 2,
@@ -158,10 +159,10 @@
           "status": 2
         }
       ],
-      "rent": 5
+      "rent": 5,
+      "id": 2
     }
   ],
-  "posts": [],
   "dictionaries": [
     {
       "item": {
@@ -192,6 +193,34 @@
         "2": "Aktualna",
         "3": "Archiwalna"
       }
+    }
+  ],
+  "posts": [
+    {
+      "number": 36,
+      "property": {
+        "type": 1,
+        "address": {
+          "street": "",
+          "city": "",
+          "geo": {
+            "lati": "",
+            "longi": ""
+          }
+        },
+        "values": {
+          "rooms": "",
+          "floor": "",
+          "area": "",
+          "isBalcony": false,
+          "isGarage": false
+        },
+        "insurance": {
+          "company": "",
+          "number": ""
+        }
+      },
+      "id": 1
     }
   ]
 }

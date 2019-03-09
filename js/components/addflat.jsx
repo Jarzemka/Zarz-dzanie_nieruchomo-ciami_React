@@ -27,7 +27,7 @@ class AddFlat extends React.Component {
             name: "",
             surename: "",
             pesel: "",
-            id: "",
+            idNum: "",
             email: "",
             phone: "",
         },
@@ -50,6 +50,10 @@ class AddFlat extends React.Component {
             tv: "",
             cableTv: "",
         },
+        rent: {
+            begin: "",
+            end: "",
+        },
         text: "",
         isLoaded: false,
     }
@@ -57,20 +61,40 @@ class AddFlat extends React.Component {
     handleChange = (e) => {
         e.preventDefault();
         console.log(e.target.value);
-        this.setState({
-            value: e.target.value,
-        });
+        // this.setState({
+        //     value: e.target.value,
+        // });
     }
+
+    handleCheckboxBalcony = (e) => {
+        e.preventDefault();
+        this.setState({
+            propertyDescription: {
+                "isBalcony": !this.state.isBalcony
+            }
+        })
+    }
+
+    handleCheckboxGarage = (e) => {
+        e.preventDefault();
+        this.setState({
+            propertyDescription: {
+                "isGarage": !this.state.isGarage
+            }
+        })
+    }
+
 
     btnSubmit = (e) => {
         e.preventDefault();
         const dict = [...this.state.dict];
+
         this.setState({
             person: {
                 "name": e.target.name.value,
                 "surename": e.target.surname.value,
                 "pesel": e.target.pesel.value,
-                "id": e.target.id.value,
+                "idNum": e.target.idNum.value,
                 "email": e.target.email.value,
                 "phone": e.target.phone.value,
             },
@@ -82,8 +106,6 @@ class AddFlat extends React.Component {
                 "floors": e.target.floors.value,
                 "insurance": e.target.insurance.value,
                 "agency": e.target.agency.value,
-                "isBalcony": "",
-                "isGarage": "",
             },
             estimate: {
                 "rent": e.target.rent.value,
@@ -93,6 +115,10 @@ class AddFlat extends React.Component {
                 "tv": e.target.tv.value,
                 "cableTv": e.target.cableTv.value,
             },
+            rent: {
+                "begin": e.target.begin.value,
+                "end": e.target.end.value,
+            },
             text: e.target.text.value,
             info: [],
             dict,
@@ -100,13 +126,98 @@ class AddFlat extends React.Component {
         //--------------------
 
         const data = {
-            person: {
-                "name": this.state.person.name,
-            },
-            propertyDescription: {},
-            estimate: {},
-            text: "",
+            number: this.state.number,
+            property: {
+                "type": 1,
+                "address": {
+                    "street": this.state.propertyDescription.address,
+                    "city": this.state.propertyDescription.city,
+                    "geo": {
+                        "lati": "",
+                        "longi": "",
+                    }
+                },
+                values: {
+                    "rooms": this.state.propertyDescription.rooms,
+                    "floor": this.state.propertyDescription.floors,
+                    "area": this.state.propertyDescription.area,
+                    "isBalcony": this.state.propertyDescription.isBalcony,
+                    "isGarage": this.state.propertyDescription.isGarage,
+                },
+                insurance: {
+                    "company": this.state.propertyDescription.agency,
+                    "number": this.state.propertyDescription.insurance,
+                }
+            }
+            //       "agreements": [
+            //         {
+            //           "id": 1,
+            //           "person": {
+            //             "name": this.state.person.name,
+            //             "surname": this.state.person.surename,
+            //             "pesel": this.state.person.pesel,
+            //                  
+            //             "email": this.state.person.email,
+            //             "phone": this.state.person.phone,
+            //           },
+            //           "begin": "",
+            //           "end": "",
+            //           "status": 3,
+            //           "created": ""
+            //         },
+            //         {
+            //           "id": 2,
+            //           "begin": "",
+            //           "end": "",
+            //           "status": 3,
+            //           "created": ""
+            //         }
+            //       ],
+            //       "text": "",
+            //       "description": "",
+            //       "pictures": [
+            //         {
+            //           "url": "",
+            //           "descr": "",
+            //           "created": ""
+            //         }
+            //       ]
+            //     }
+
+            // person: {
+            //     "name": this.state.person.name,
+            //     "surename": this.state.person.surename,
+            //     "pesel": this.state.person.pesel,
+            //     "idNum": this.state.person.idNum,
+            //     "email": this.state.person.email,
+            //     "phone": this.state.person.phone,
+            // },
+            // propertyDescription: {
+            //     "address": this.state.propertyDescription.address,
+            //     "city": this.state.propertyDescription.city,
+            //     "rooms": this.state.propertyDescription.rooms,
+            //     "area": this.state.propertyDescription.area,
+            //     "floors": this.state.propertyDescription.floors,
+            //     "insurance": this.state.propertyDescription.insurance,
+            //     "agency": this.state.propertyDescription.agency,
+            //     "isBalcony": this.state.propertyDescription.isBalcony,
+            //     "isGarage": this.state.propertyDescription.isGarage,
+            // },
+            // estimate: {
+            //     "rent": this.state.estimate.rent,
+            //     "price": this.state.estimate.price,
+            //     "utilities": this.state.estimate.utilities,
+            //     "internet": this.state.estimate.internet,
+            //     "tv": this.state.estimate.tv,
+            //     "cableTv": this.state.estimate.cableTv,
+            // },
+            // rent: {
+            //     "begin": this.state.rent.begin,
+            //     "end": this.state.rent.end,
+            // },
+            // text: this.state.text,
         }
+
         const options = {
             method: 'POST',
             body: JSON.stringify(data),
@@ -115,11 +226,10 @@ class AddFlat extends React.Component {
             }
         }
 
-        fetch('http://localhost:3000/posts', options)
+        fetch('http://localhost:3000/info', options)
             .then(response => response.json())
             .then(json => console.log(json))
             .catch((err) => console.log(err))
-
     };
 
     componentDidMount() {
@@ -155,7 +265,9 @@ class AddFlat extends React.Component {
                     </select>
                 </label>
             </div>
-            <Property />
+            <Property
+                checkboxBalcony={this.handleCheckboxBalcony}
+                checkboxGarage={this.handleCheckboxGarage} />
             <Person />
             <section className="box">
                 <label className="boxTitle">Wycena</label>
@@ -168,10 +280,10 @@ class AddFlat extends React.Component {
             </section>
             <section className="box">
                 <label className="boxTitle">Czas obowiązywania umowy</label><br />
-                <p>Data rozpoczęcia:</p><input type="date" placeholder="Początek umowy" />
-                <p>Data zakończenia:</p><input type="date" placeholder="Koniec umowy" />
+                <p>Data rozpoczęcia:</p><input type="date" name="begin" placeholder="Początek umowy" />
+                <p>Data zakończenia:</p><input type="date" name="end" placeholder="Koniec umowy" />
                 <p>Dodatkowe informacje:</p >
-                <textarea name="text" value={this.state.text} placeholder="Dodatkowe uwagi" rows="5" cols="25" />
+                <textarea name="text" placeholder="Dodatkowe uwagi" rows="5" cols="25" />
             </section>
             <section className="submitBox">
                 <button className="form" type='submit'>Dodaj nieruchomość</button>

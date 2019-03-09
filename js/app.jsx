@@ -50,11 +50,10 @@ class Monitoring extends React.Component {
 
 class Main extends React.Component {
     state = {
-        info: []
+        info: this.props.setInfo
     }
-    componentDidMount() {
 
-    }
+
     render() {
         const alerts = <div id="alerts">
             <h1>1</h1>
@@ -112,6 +111,7 @@ class App extends React.Component {
     };
 
     componentDidMount() {
+        console.log("komponent zamontowany");
         setTimeout(this.fetchDiki, 1);
         setTimeout(this.fetchSetData, 2);
         // const url = 'http://localhost:3000/dictionaries';

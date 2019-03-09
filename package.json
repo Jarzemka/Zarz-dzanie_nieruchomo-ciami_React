@@ -24,7 +24,7 @@
     "webpack-dev-server": "^3.1.14"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js --hot --inline & json-server --watch db.json"
+    "start": "webpack-dev-server --config webpack.config.js --hot --inline & json-server --watch db.json --port 3000"
   },
   "author": "",
   "license": "ISC"

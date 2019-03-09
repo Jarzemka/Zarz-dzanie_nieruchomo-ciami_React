@@ -22,14 +22,14 @@ const Property = props => {
             <label htmlFor="balcony" className="inputContainer">
 
                 <p>Balkon</p>
-                <input name="balcony" type="checkbox" id="conviBalcony" />
+                <input name="balcony" type="checkbox" id="conviBalcony" onChange={props.checkboxBalcony} />
                 <span className="checkmark"></span>
 
 
             </label>
             <label htmlFor="garage" className="inputContainer">
                 <p>Garaż</p>
-                <input name="garage" type="checkbox" id="conviGarage" />
+                <input name="garage" type="checkbox" id="conviGarage" onChange={props.checkboxGarage} />
                 <span className="checkmark"></span>
 
             </label>
