@@ -25,7 +25,8 @@ Jeśli projekt jest gdzieś uruchomiony w sieci można podać adres pod jakim je
 - Przedyłanie do JSON server edytowanych elementów listy
 
 #Status
-W trakcie budowy 
+
+- W trakcie budowy 
 
 #Instalation:
 
