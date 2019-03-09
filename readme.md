@@ -29,15 +29,11 @@ W trakcie budowy
 
 #Instalation:
 
-a) do konsoli wkleić poniższy link i sklonować
+- do konsoli wkleić poniższy link i sklonować
 https://github.com/Jarzemka/Zarzadzanie_nieruchomosciami_React
-
-b) instalacja json serwer ---> npm install json-server -g
-
-c) instalacja package.json ---> npm install
-
-d) w dwóch osobnych konsolach włączyć:
+- instalacja json serwer ---> npm install json-server -g
+-instalacja package.json ---> npm install
+- w dwóch osobnych konsolach włączyć:
 	----> json-server --watch db.json 
-	----> npm start
-	
-e) w przeglądarce: http://localhost:3001
+	----> npm start	
+- w przeglądarce: http://localhost:3001
