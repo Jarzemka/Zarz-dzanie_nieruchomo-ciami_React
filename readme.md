@@ -28,6 +28,7 @@ Jeśli projekt jest gdzieś uruchomiony w sieci można podać adres pod jakim je
 W trakcie budowy 
 
 #Instalation:
+
 a) do konsoli wkleić poniższy link i sklonować
 https://github.com/Jarzemka/Zarzadzanie_nieruchomosciami_React
 
