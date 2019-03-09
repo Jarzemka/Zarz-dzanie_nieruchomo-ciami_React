@@ -36,20 +36,21 @@ class FlatsListTable extends React.Component {
     }
 
     componentDidMount() {
-        setTimeout(this.fetchData, 1000);
+        setTimeout(this.fetchData, 500);
     }
 
     render() {
+        console.log(this.state)
         const list = this.state.info.map(info => (
             <ElementList
-                key={info.number}
+                key={info.id}
                 type={info.number}
-                info={this.state.info[info.number]}
+                info={this.state.info[info.id]}
                 dict={this.props.dict.prop[info.number]}
                 address={info.property.address.street}
                 city={info.property.address.city}
             // contentEdit={this.state.contentEdit}
-            // delete={this.handleDeleteBtn}
+            // delete={this.handleDeleteBtn.bind(this)}
             />
         ));
         return (

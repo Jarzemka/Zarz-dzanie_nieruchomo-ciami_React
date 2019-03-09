@@ -18,21 +18,11 @@ class ElementList extends React.Component {
         }
     }
 
-
-    handleDeleteBtn(number) {
-        console.log("delete");
-        //     const info = [...this.state.info];
-        //     const index = info.findIndex(info => info.number === number);
-        //     console.log(index);
-        //     info.splice(index, 1);
-        //     this.setState({
-        //         info
-        //     });
-    }
-
     handleEditBtn(number) {
         console.log("edit");
-        console.log(this.props)
+        this.setState({
+            contentEdit: !this.state.contentEdit,
+        });
         // const info = [...this.props.info];
         // const index = info.findIndex(info => info.number === number);
         // console.log(index);
@@ -48,36 +38,34 @@ class ElementList extends React.Component {
         //     .then(response => response.json())
         //     .then(json => console.log(json))
         //     .catch((err) => console.log(err))
-
-
-        this.setState({
-            contentEdit: !this.state.contentEdit,
-        });
     }
 
     handleDeleteBtn(number) {
         console.log("delete");
-        const info = [...this.state.info];
-        const index = info.findIndex(info => info.number === number);
-        console.log(index);
-        info.splice(index, 1);
-        this.setState({
-            info
-        });
+        // console.log(this)
+        // const info = [...this.state.info];
+        console.log(this.state.info)
+        // const index = info.findIndex(info => info.number === number);
+        const index = this.state.info.id;
+        // console.log(index);
+        // info.splice(index, 1);
+        // this.setState({
+        //     info
+        // });
         // let id = this.state.info.number;
 
-        // const options = {
-        //     method: 'DELETE',
-        //     body: JSON.stringify({ index }),
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     }
-        // }
+        const options = {
+            method: 'DELETE',
+            body: JSON.stringify({ index }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
 
-        // fetch('http://localhost:3000/info/' + index, options)
-        //     .then(response => response.json())
-        //     .then(json => console.log(json))
-        //     .catch((err) => console.log(err))
+        fetch('http://localhost:3000/info/' + index, options)
+            .then(response => response.json())
+            .then(json => console.log(json))
+            .catch((err) => console.log(err))
     }
     render() {
         return (
@@ -87,7 +75,10 @@ class ElementList extends React.Component {
                         {this.props.type}. {this.props.dict} {this.props.address} {this.props.city}
                     </span>
                     <button className="editBtn" onClick={this.handleEditBtn.bind(this)}>{this.state.contentEdit ? "Zapisz" : "Edytuj"}</button>
-                    <button className="deleteBtn" onClick={this.handleDeleteBtn}>Usuń</button>
+                    <button className="deleteBtn"
+                        onClick={this.handleDeleteBtn.bind(this)}
+                    // onClick={this.props.delete}
+                    >Usuń</button>
                 </li>
             </ul>
         )
