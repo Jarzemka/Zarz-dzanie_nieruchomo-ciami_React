@@ -1,6 +1,6 @@
 ﻿# Zarządzanie nieruchomościami - Deweloper
 
-Aplikacja została stworzona dla przedsięborców, jako wsparcie do zarządzania (wynajem, sprzedaż, kupno itp.) nieruchomościami.
+Aplikacja została stworzona dla deweloperów, jako wsparcie do zarządzania (wynajem, sprzedaż, kupno itp.) nieruchomościami.
 
 
 
