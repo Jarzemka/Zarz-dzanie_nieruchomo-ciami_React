@@ -2,8 +2,7 @@
 
 Aplikacja została stworzona dla przedsięborców, jako wsparcie do zarządzania (wynajem, sprzedaż, kupno itp.) nieruchomościami.
 
-# Run: 
-Jeśli projekt jest gdzieś uruchomiony w sieci można podać adres pod jakim jest dostępny
+
 
 # Technologies: 
 - ES6
